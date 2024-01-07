@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1033777845918",
+    "project_id": "mochmatch-3ed20",
+    "storage_bucket": "mochmatch-3ed20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033777845918:android:4ade88200c805d98a0cd8f",
+        "android_client_info": {
+          "package_name": "com.mycompany.mochmatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqLDUh5Mejaive_XsbanfTi0eZNWqLGLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
