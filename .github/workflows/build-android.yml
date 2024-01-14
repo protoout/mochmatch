@@ -1,4 +1,4 @@
-name: build-android
+name: build-flutter
 
 on:
   workflow_dispatch:
@@ -6,37 +6,38 @@ on:
     branches: [ main ]
 
 jobs:
-  build-android: # job の名前  [job = step のまとまり]
-
-    runs-on: ubuntu-latest # ubuntu 環境でやっていく
-
+  build-android-and-web:
+    runs-on: ubuntu-latest
     steps:
-      # チェックアウト
       - name: Checks-out my repository
         uses: actions/checkout@v2
 
-      # Flutter のインストール clone がはやい
       - name: Install Flutter
         run: git clone https://github.com/flutter/flutter.git
 
-      # PATH を通す
       - name: Add path
         run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
 
-      # パッケージのダウンロード
       - name: Download Flutter packages
         run: flutter pub get
 
-      # apk ファイルのビルド
       - name: Build Android
         run: flutter build apk
 
-      # ダウンロードできるようにする
       - name: Upload apk to Artifact
         uses: actions/upload-artifact@v1
         with:
           name: apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Build Web
+        run: flutter build web
+
+      - name: Upload web to Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: apk
+          path: build/web/*
 
       # Secrets からrelease.jks を生成
       # - name: Create release.jks
