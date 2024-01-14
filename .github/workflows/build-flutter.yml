@@ -36,7 +36,7 @@ jobs:
       - name: Upload web to Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: apk
+          name: web
           path: build/web
 
       # Secrets からrelease.jks を生成
