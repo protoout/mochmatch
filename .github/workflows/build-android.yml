@@ -31,29 +31,12 @@ jobs:
       - name: Build Android
         run: flutter build apk
 
-      # リリースの作成
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # ダウンロードできるようにする
+      - name: Upload apk to Artifact
+        uses: actions/upload-artifact@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      # apk ファイルをリリースにアップロード
-      - name: Upload Release Asset
-        id: upload-release-asset-linux
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/app/outputs/flutter-apk/app-release.apk
-          asset_name: mochmatch_${{  github.ref }}.apk
-          asset_content_type: application/zip
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
       # Secrets からrelease.jks を生成
       # - name: Create release.jks
