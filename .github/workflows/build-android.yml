@@ -27,6 +27,34 @@ jobs:
       - name: Download Flutter packages
         run: flutter pub get
 
+      # apk ファイルのビルド
+      - name: Build Android
+        run: flutter build apk
+
+      # リリースの作成
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      # apk ファイルをリリースにアップロード
+      - name: Upload Release Asset
+        id: upload-release-asset-linux
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/app/outputs/flutter-apk/app-release.apk
+          asset_name: mochmatch_${{  github.ref }}.apk
+          asset_content_type: application/zip
+
       # Secrets からrelease.jks を生成
       # - name: Create release.jks
       #   run: echo -n ${{ secrets.ANDROID_KEY_JKS }} | base64 -d > android/release.jks # -n で改行を消している
@@ -46,10 +74,6 @@ jobs:
       #     echo 'storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}' >> android/key.properties
       #     echo 'keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}' >> android/key.properties
       #     echo 'keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}' >> android/key.properties
-
-      # ビルド
-      - name: Build Android
-        run: flutter build apk
 
       # App Bundle を生成
       # - name: Building Android AppBundle
