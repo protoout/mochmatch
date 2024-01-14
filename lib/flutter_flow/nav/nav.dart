@@ -94,6 +94,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'SupporterPage')
               : SupporterPageWidget(),
+        ),
+        FFRoute(
+          name: 'AddPage',
+          path: '/addPage',
+          builder: (context, params) => AddPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

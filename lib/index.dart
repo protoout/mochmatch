@@ -6,3 +6,4 @@ export '/pages/how_to_use_page/how_to_use_page_widget.dart'
     show HowToUsePageWidget;
 export '/pages/supporter_page/supporter_page_widget.dart'
     show SupporterPageWidget;
+export '/pages/add_page/add_page_widget.dart' show AddPageWidget;
