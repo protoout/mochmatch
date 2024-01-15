@@ -9,7 +9,11 @@ build-ios:
 build-web:
 	flutter build web
 
+build-clean:
+	rm -rf build
+
 build-all:
+	make build-clean; \
 	make build-apk; \
 	make build-ios; \
 	make build-web;
