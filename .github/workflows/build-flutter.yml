@@ -8,6 +8,7 @@ on:
 jobs:
   build-android-and-web:
     runs-on: ubuntu-latest
+    name: Build for Android / Web
     steps:
       - name: Checks-out my repository
         uses: actions/checkout@v2
@@ -69,3 +70,53 @@ jobs:
       # - name: Upload to GooglePlayStore
       #   run: ./gradlew publishReleaseBundle
       #   working-directory: ./android
+  build-ios:
+    name: Build for iOS
+    runs-on: macos-latest
+
+    steps:
+      - name: Checks-out my repository
+        uses: actions/checkout@v2
+
+      - name: Install Flutter
+        run: git clone https://github.com/flutter/flutter.git
+
+      - name: Add path
+        run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+
+      - name: Download Flutter packages
+        run: flutter pub get
+
+      - name: Build iOS
+        run: flutter build ios
+
+      - name: ls -la
+        run: ls build/ios
+
+      # - name: Upload apk to Artifact
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: apk
+      #     path: build/app/outputs/flutter-apk/app-release.apk
+
+      # # 証明書の生成
+      # - name: Import Provisioning Profile
+      #   run: | # 複数行の run を書きたい場合はこうする 以下、Provisioning Profilesを置くべきディレクトリにデコードしている
+      #     mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+      #     echo -n ${{ secrets.PROVISIONING_PROFILE }} | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/distribution.mobileprovision
+
+      # # 署名をする
+      # - name: Import Code-Signing Certificates
+      #   uses: Apple-Actions/import-codesign-certs@v1 # 外部パッケージを使っている
+      #   with:
+      #     p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+      #     p12-password: ${{ secrets.CERTIFICATE_PASSWORD }}
+
+      # # ipa ファイルの出力
+      # - name: Create ipa file
+      #   # GITHUB_RUN_NUMBER をビルドナンバーに指定することで被りがないようにしている。
+      #   run: flutter build ipa --export-options-plist=ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
+
+      # # AppStoreConnect にアップロードする
+      # - name: Upload to AppStoreConnect
+      #   run: xcrun altool --upload-app -f "./build/ios/ipa/github_actios_sample.ipa" -u "${{ secrets.APPLE_ID }}" -p "${{ secrets.APPLE_APP_PASS }}"
