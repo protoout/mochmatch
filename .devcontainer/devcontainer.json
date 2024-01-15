@@ -13,10 +13,13 @@
         "oderwat.indent-rainbow",
         "ritwickdey.LiveServer",
         "Gruntfuggly.todo-tree",
-        "ionutvmi.path-autocomplete"
+        "ionutvmi.path-autocomplete",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.makefile-tools"
       ]
     }
   },
+  "postStartCommand": "flutter pub upgrade",
   "containerEnv": {
     "SSH_AUTH_SOCK": "/run/host-services/ssh-auth.sock"
   },
