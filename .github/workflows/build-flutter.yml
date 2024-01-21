@@ -90,14 +90,11 @@ jobs:
       - name: Build iOS
         run: flutter build ios --debug --no-codesign
 
-      - name: ls -la
-        run: ls build/ios
-
-      # - name: Upload apk to Artifact
-      #   uses: actions/upload-artifact@v1
-      #   with:
-      #     name: apk
-      #     path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Upload app to Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app
+          path: build/ios/iphoneos/Runner.app
 
       # # 証明書の生成
       # - name: Import Provisioning Profile
