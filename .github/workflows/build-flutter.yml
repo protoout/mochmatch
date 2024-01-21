@@ -88,7 +88,7 @@ jobs:
         run: flutter pub get
 
       - name: Build iOS
-        run: flutter build ipa
+        run: flutter build ios --debug --no-codesign
 
       - name: ls -la
         run: ls build/ios
