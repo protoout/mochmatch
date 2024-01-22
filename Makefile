@@ -10,7 +10,10 @@ build-web:
 	flutter build web
 
 build-clean:
-	rm -rf build
+	flutter clean
+
+build-install:
+	flutter install
 
 build-all:
 	make build-clean; \

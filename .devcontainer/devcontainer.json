@@ -5,6 +5,9 @@
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "customizations": {
     "vscode": {
+      "settings": {
+        "dart.flutterSdkPath": "/root/fvm/default/bin/flutter"
+      },
       "extensions": [
         "github.vscode-github-actions",
         "vscjava.vscode-gradle",

@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:io';
 import 'add_page_widget.dart' show AddPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -24,6 +27,11 @@ class AddPageModel extends FlutterFlowModel<AddPageWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for PlacePicker widget.
   var placePickerValue = FFPlace();
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController1;
   // State field(s) for RadioButton widget.

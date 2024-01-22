@@ -100,8 +100,8 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                 padding: EdgeInsets.all(5.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  child: Image.network(
-                                    'https://pbs.twimg.com/profile_images/765761796896657408/-bHWK04-_400x400.jpg',
+                                  child: Image.asset(
+                                    'assets/images/64rre_.jpg',
                                     width: 105.0,
                                     height: 105.0,
                                     fit: BoxFit.fill,
@@ -167,8 +167,8 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               padding: EdgeInsets.all(5.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Image.network(
-                                  'https://pbs.twimg.com/profile_images/1672473298461147136/LK14MfY1_400x400.jpg',
+                                child: Image.asset(
+                                  'assets/images/vuw9k_.png',
                                   width: 90.0,
                                   height: 90.0,
                                   fit: BoxFit.fill,
@@ -233,8 +233,8 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               padding: EdgeInsets.all(5.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Image.network(
-                                  'https://pbs.twimg.com/profile_images/1647878586416893952/0CdiwJYC_400x400.jpg',
+                                child: Image.asset(
+                                  'assets/images/vuw9k_.png',
                                   width: 75.0,
                                   height: 75.0,
                                   fit: BoxFit.fill,
@@ -289,8 +289,8 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                           padding: EdgeInsets.all(5.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
-                            child: Image.network(
-                              'https://pbs.twimg.com/profile_images/1673692042919292928/U0a0Tb8U_400x400.jpg',
+                            child: Image.asset(
+                              'assets/images/3dgvw_.png',
                               width: 60.0,
                               height: 60.0,
                               fit: BoxFit.fill,

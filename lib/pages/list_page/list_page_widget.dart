@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -165,6 +164,10 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                               .onError(
                                   (_, __) => _model.simpleSearchResults = [])
                               .whenComplete(() => setState(() {}));
+
+                          setState(() {
+                            _model.isShowFullList = false;
+                          });
                         },
                       ),
                       Expanded(
@@ -233,249 +236,506 @@ class _ListPageWidgetState extends State<ListPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                FutureBuilder<List<MochmatchDataRecord>>(
-                  future: (_model.firestoreRequestCompleter ??=
-                          Completer<List<MochmatchDataRecord>>()
-                            ..complete(queryMochmatchDataRecordOnce(
-                              queryBuilder: (mochmatchDataRecord) =>
-                                  mochmatchDataRecord.orderBy('location'),
-                            )))
-                      .future,
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
-                            ),
+          child: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              currentUserLocationValue = await getCurrentUserLocation(
+                  defaultLocation: LatLng(0.0, 0.0));
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Builder(
+                    builder: (context) {
+                      if (_model.isShowFullList) {
+                        return FutureBuilder<List<MochmatchDataRecord>>(
+                          future: queryMochmatchDataRecordOnce(
+                            queryBuilder: (mochmatchDataRecord) =>
+                                mochmatchDataRecord.orderBy('location'),
                           ),
-                        ),
-                      );
-                    }
-                    List<MochmatchDataRecord> listViewMochmatchDataRecordList =
-                        snapshot.data!;
-                    return InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        setState(() => _model.firestoreRequestCompleter = null);
-                        await _model.waitForFirestoreRequestCompleted();
-                      },
-                      child: ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewMochmatchDataRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewMochmatchDataRecord =
-                              listViewMochmatchDataRecordList[listViewIndex];
-                          return SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          'DetailPage',
-                                          queryParameters: {
-                                            'name': serializeParam(
-                                              listViewMochmatchDataRecord.name,
-                                              ParamType.String,
-                                            ),
-                                            'location': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .location,
-                                              ParamType.LatLng,
-                                            ),
-                                            'dayOfWeek': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .dayOfWeek,
-                                              ParamType.int,
-                                            ),
-                                            'timeframe': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .timeframe,
-                                              ParamType.int,
-                                            ),
-                                            'softnessOfChair': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .softnessOfChair,
-                                              ParamType.int,
-                                            ),
-                                            'friendlinessOfStaffs':
-                                                serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .friendlinessOfStaffs,
-                                              ParamType.int,
-                                            ),
-                                            'noisiness': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .noisiness,
-                                              ParamType.int,
-                                            ),
-                                            'bgm': serializeParam(
-                                              listViewMochmatchDataRecord.bgm,
-                                              ParamType.int,
-                                            ),
-                                            'brightness': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .brightness,
-                                              ParamType.int,
-                                            ),
-                                            'twitterUrl': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .twitterUrl,
-                                              ParamType.String,
-                                            ),
-                                            'instagramUrl': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .instagramUrl,
-                                              ParamType.String,
-                                            ),
-                                            'isClosed': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .isClosed,
-                                              ParamType.bool,
-                                            ),
-                                            'webSiteUrl': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .webSiteUrl,
-                                              ParamType.String,
-                                            ),
-                                            'shishaPicture': serializeParam(
-                                              listViewMochmatchDataRecord
-                                                  .shishaPicture,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.5, 0.0),
-                                                child: AutoSizeText(
-                                                  listViewMochmatchDataRecord
-                                                      .name
-                                                      .maybeHandleOverflow(
-                                                    maxChars: 30,
-                                                    replacement: '…',
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 16.0,
-                                                      ),
-                                                ),
-                                              ),
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  functions.calculateMochmatch(
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            List<MochmatchDataRecord>
+                                listViewMochmatchDataRecordList =
+                                snapshot.data!;
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {},
+                              child: ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount:
+                                    listViewMochmatchDataRecordList.length,
+                                itemBuilder: (context, listViewIndex) {
+                                  final listViewMochmatchDataRecord =
+                                      listViewMochmatchDataRecordList[
+                                          listViewIndex];
+                                  return SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'DetailPage',
+                                                  queryParameters: {
+                                                    'name': serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .name,
+                                                      ParamType.String,
+                                                    ),
+                                                    'location': serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .location,
+                                                      ParamType.LatLng,
+                                                    ),
+                                                    'dayOfWeek': serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .dayOfWeek,
+                                                      ParamType.int,
+                                                    ),
+                                                    'timeframe': serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .timeframe,
+                                                      ParamType.int,
+                                                    ),
+                                                    'softnessOfChair':
+                                                        serializeParam(
                                                       listViewMochmatchDataRecord
                                                           .softnessOfChair,
+                                                      ParamType.int,
+                                                    ),
+                                                    'friendlinessOfStaffs':
+                                                        serializeParam(
                                                       listViewMochmatchDataRecord
                                                           .friendlinessOfStaffs,
+                                                      ParamType.int,
+                                                    ),
+                                                    'noisiness': serializeParam(
                                                       listViewMochmatchDataRecord
                                                           .noisiness,
+                                                      ParamType.int,
+                                                    ),
+                                                    'bgm': serializeParam(
                                                       listViewMochmatchDataRecord
                                                           .bgm,
+                                                      ParamType.int,
+                                                    ),
+                                                    'brightness':
+                                                        serializeParam(
                                                       listViewMochmatchDataRecord
-                                                          .brightness),
-                                                  'default',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                              Text(
-                                                functions.calculateDistance(
-                                                    listViewMochmatchDataRecord
-                                                        .location!,
-                                                    currentUserLocationValue!),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 14.0,
+                                                          .brightness,
+                                                      ParamType.int,
+                                                    ),
+                                                    'twitterUrl':
+                                                        serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .twitterUrl,
+                                                      ParamType.String,
+                                                    ),
+                                                    'instagramUrl':
+                                                        serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .instagramUrl,
+                                                      ParamType.String,
+                                                    ),
+                                                    'isClosed': serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .isClosed,
+                                                      ParamType.bool,
+                                                    ),
+                                                    'webSiteUrl':
+                                                        serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .webSiteUrl,
+                                                      ParamType.String,
+                                                    ),
+                                                    'shishaPicture':
+                                                        serializeParam(
+                                                      listViewMochmatchDataRecord
+                                                          .shishaPicture,
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -0.5, 0.0),
+                                                        child: AutoSizeText(
+                                                          listViewMochmatchDataRecord
+                                                              .name
+                                                              .maybeHandleOverflow(
+                                                            maxChars: 30,
+                                                            replacement: '…',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 16.0,
+                                                              ),
                                                         ),
-                                              ),
-                                            ],
-                                          ),
-                                          Expanded(
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  valueOrDefault<String>(
-                                                    listViewMochmatchDataRecord
-                                                        .shishaPicture,
-                                                    'https://media.discordapp.net/attachments/1177153383119994942/1188715756750381097/7294e0c6a45f6d6b.png?ex=659b88d1&is=658913d1&hm=a9b7e467351720378e5d4658a1f9aa4f4eec517d6a0fbace5b1a441ea542217a&=&format=webp&quality=lossless&width=625&height=625',
+                                                      ),
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          functions.calculateMochmatch(
+                                                              listViewMochmatchDataRecord
+                                                                  .softnessOfChair,
+                                                              listViewMochmatchDataRecord
+                                                                  .friendlinessOfStaffs,
+                                                              listViewMochmatchDataRecord
+                                                                  .noisiness,
+                                                              listViewMochmatchDataRecord
+                                                                  .bgm,
+                                                              listViewMochmatchDataRecord
+                                                                  .brightness),
+                                                          'default',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                      Text(
+                                                        functions.calculateDistance(
+                                                            listViewMochmatchDataRecord
+                                                                .location!,
+                                                            currentUserLocationValue!),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 14.0,
+                                                            ),
+                                                      ),
+                                                    ],
                                                   ),
-                                                  width: 65.0,
-                                                  height: 65.0,
-                                                  fit: BoxFit.contain,
-                                                  alignment:
-                                                      Alignment(1.0, 0.0),
-                                                ),
+                                                  Expanded(
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            listViewMochmatchDataRecord
+                                                                .shishaPicture,
+                                                            'https://media.discordapp.net/attachments/1177153383119994942/1188715756750381097/7294e0c6a45f6d6b.png?ex=659b88d1&is=658913d1&hm=a9b7e467351720378e5d4658a1f9aa4f4eec517d6a0fbace5b1a441ea542217a&=&format=webp&quality=lossless&width=625&height=625',
+                                                          ),
+                                                          width: 65.0,
+                                                          height: 65.0,
+                                                          fit: BoxFit.contain,
+                                                          alignment: Alignment(
+                                                              1.0, 0.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
+                                            Divider(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                    Divider(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        );
+                      } else {
+                        return Builder(
+                          builder: (context) {
+                            final searchResult =
+                                _model.simpleSearchResults.toList();
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {},
+                              child: ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: searchResult.length,
+                                itemBuilder: (context, searchResultIndex) {
+                                  final searchResultItem =
+                                      searchResult[searchResultIndex];
+                                  return SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'DetailPage',
+                                                  queryParameters: {
+                                                    'name': serializeParam(
+                                                      searchResultItem.name,
+                                                      ParamType.String,
+                                                    ),
+                                                    'location': serializeParam(
+                                                      searchResultItem.location,
+                                                      ParamType.LatLng,
+                                                    ),
+                                                    'dayOfWeek': serializeParam(
+                                                      searchResultItem
+                                                          .dayOfWeek,
+                                                      ParamType.int,
+                                                    ),
+                                                    'timeframe': serializeParam(
+                                                      searchResultItem
+                                                          .timeframe,
+                                                      ParamType.int,
+                                                    ),
+                                                    'softnessOfChair':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .softnessOfChair,
+                                                      ParamType.int,
+                                                    ),
+                                                    'friendlinessOfStaffs':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .friendlinessOfStaffs,
+                                                      ParamType.int,
+                                                    ),
+                                                    'noisiness': serializeParam(
+                                                      searchResultItem
+                                                          .noisiness,
+                                                      ParamType.int,
+                                                    ),
+                                                    'bgm': serializeParam(
+                                                      searchResultItem.bgm,
+                                                      ParamType.int,
+                                                    ),
+                                                    'brightness':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .brightness,
+                                                      ParamType.int,
+                                                    ),
+                                                    'twitterUrl':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .twitterUrl,
+                                                      ParamType.String,
+                                                    ),
+                                                    'instagramUrl':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .instagramUrl,
+                                                      ParamType.String,
+                                                    ),
+                                                    'isClosed': serializeParam(
+                                                      searchResultItem.isClosed,
+                                                      ParamType.bool,
+                                                    ),
+                                                    'webSiteUrl':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .webSiteUrl,
+                                                      ParamType.String,
+                                                    ),
+                                                    'shishaPicture':
+                                                        serializeParam(
+                                                      searchResultItem
+                                                          .shishaPicture,
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -0.5, 0.0),
+                                                        child: AutoSizeText(
+                                                          searchResultItem.name
+                                                              .maybeHandleOverflow(
+                                                            maxChars: 30,
+                                                            replacement: '…',
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 16.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          functions.calculateMochmatch(
+                                                              searchResultItem
+                                                                  .softnessOfChair,
+                                                              searchResultItem
+                                                                  .friendlinessOfStaffs,
+                                                              searchResultItem
+                                                                  .noisiness,
+                                                              searchResultItem
+                                                                  .bgm,
+                                                              searchResultItem
+                                                                  .brightness),
+                                                          'default',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                      Text(
+                                                        functions.calculateDistance(
+                                                            searchResultItem
+                                                                .location!,
+                                                            currentUserLocationValue!),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              fontSize: 14.0,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Expanded(
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          searchResultItem
+                                                              .shishaPicture,
+                                                          width: 65.0,
+                                                          height: 65.0,
+                                                          fit: BoxFit.contain,
+                                                          alignment: Alignment(
+                                                              1.0, 0.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Divider(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ],
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        );
+                      }
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

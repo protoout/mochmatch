@@ -78,8 +78,8 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(0.0),
-                  child: Image.network(
-                    'https://res.cloudinary.com/glide/image/fetch/f_auto,w_450,h_150,c_lfill/https%3A%2F%2Fstorage.googleapis.com%2Fglide-prod.appspot.com%2Fuploads-v2%2FWnXYZz3BUD7R1SDpfRJG%2Fpub%2FZmwTfthHdXomI1TPIAoC.png',
+                  child: Image.asset(
+                    'assets/images/j7m2o_.png',
                     width: 300.0,
                     height: 200.0,
                     fit: BoxFit.cover,
@@ -122,8 +122,8 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://lh3.googleusercontent.com/d/1V3fw-HJshRfGoggKtoraxehZzQlL25hb=w361?authuser=0',
+                        child: Image.asset(
+                          'assets/images/_2024-01-19_20.38.45.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -136,8 +136,8 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://lh3.googleusercontent.com/d/1C0B9nPR_NwsNdqiVzF9rrULiNZ05CYJb=w361?authuser=0',
+                        child: Image.asset(
+                          'assets/images/_2024-01-19_20.39.19.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -150,8 +150,8 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://lh3.googleusercontent.com/d/12znFA5zVi2XUJHoSEjMegg7OsLzymmst=w470?authuser=0',
+                        child: Image.asset(
+                          'assets/images/_2024-01-19_20.55.17.png',
                           fit: BoxFit.cover,
                         ),
                       ),

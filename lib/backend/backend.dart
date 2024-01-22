@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../auth/firebase_auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/util/firestore_util.dart';
 
 import 'schema/mochmatch_data_record.dart';
+import 'schema/day_of_week_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,6 +15,7 @@ export 'schema/util/firestore_util.dart';
 export 'schema/util/schema_util.dart';
 
 export 'schema/mochmatch_data_record.dart';
+export 'schema/day_of_week_record.dart';
 
 /// Functions to query MochmatchDataRecords (as a Stream and as a Future).
 Future<int> queryMochmatchDataRecordCount({
@@ -45,6 +49,43 @@ Future<List<MochmatchDataRecord>> queryMochmatchDataRecordOnce({
     queryCollectionOnce(
       MochmatchDataRecord.collection,
       MochmatchDataRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query DayOfWeekRecords (as a Stream and as a Future).
+Future<int> queryDayOfWeekRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      DayOfWeekRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<DayOfWeekRecord>> queryDayOfWeekRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      DayOfWeekRecord.collection,
+      DayOfWeekRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<DayOfWeekRecord>> queryDayOfWeekRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      DayOfWeekRecord.collection,
+      DayOfWeekRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

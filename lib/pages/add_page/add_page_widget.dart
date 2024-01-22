@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/place.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -226,7 +229,54 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         ),
                         FFButtonWidget(
                           onPressed: () async {
-                            context.pushNamed('HomePage');
+                            final selectedMedia =
+                                await selectMediaWithSourceBottomSheet(
+                              context: context,
+                              allowPhoto: true,
+                            );
+                            if (selectedMedia != null &&
+                                selectedMedia.every((m) => validateFileFormat(
+                                    m.storagePath, context))) {
+                              setState(() => _model.isDataUploading = true);
+                              var selectedUploadedFiles = <FFUploadedFile>[];
+
+                              var downloadUrls = <String>[];
+                              try {
+                                selectedUploadedFiles = selectedMedia
+                                    .map((m) => FFUploadedFile(
+                                          name: m.storagePath.split('/').last,
+                                          bytes: m.bytes,
+                                          height: m.dimensions?.height,
+                                          width: m.dimensions?.width,
+                                          blurHash: m.blurHash,
+                                        ))
+                                    .toList();
+
+                                downloadUrls = (await Future.wait(
+                                  selectedMedia.map(
+                                    (m) async => await uploadData(
+                                        m.storagePath, m.bytes),
+                                  ),
+                                ))
+                                    .where((u) => u != null)
+                                    .map((u) => u!)
+                                    .toList();
+                              } finally {
+                                _model.isDataUploading = false;
+                              }
+                              if (selectedUploadedFiles.length ==
+                                      selectedMedia.length &&
+                                  downloadUrls.length == selectedMedia.length) {
+                                setState(() {
+                                  _model.uploadedLocalFile =
+                                      selectedUploadedFiles.first;
+                                  _model.uploadedFileUrl = downloadUrls.first;
+                                });
+                              } else {
+                                setState(() {});
+                                return;
+                              }
+                            }
                           },
                           text: '画像をアップロード',
                           options: FFButtonOptions(
@@ -538,7 +588,53 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                     await MochmatchDataRecord.collection.doc().set({
                       ...createMochmatchDataRecordData(
                         name: _model.textController.text,
-                        location: _model.placePickerValue.latLng,
+                        dayOfWeek: _model.radioButtonValue1 == '月〜金' ? 1 : 2,
+                        timeframe: () {
+                          if (_model.radioButtonValue2 == '5:00〜15:00') {
+                            return 1;
+                          } else if (_model.radioButtonValue2 ==
+                              '15:00〜18:00') {
+                            return 2;
+                          } else if (_model.radioButtonValue2 ==
+                              '18:00〜22:00') {
+                            return 3;
+                          } else {
+                            return 4;
+                          }
+                        }(),
+                        softnessOfChair: () {
+                          if (_model.radioButtonValue3 == 'ソファと一体化') {
+                            return 4;
+                          } else if (_model.radioButtonValue3 == 'フカフカ') {
+                            return 3;
+                          } else if (_model.radioButtonValue3 == '固い') {
+                            return 2;
+                          } else {
+                            return 1;
+                          }
+                        }(),
+                        friendlinessOfStaffs:
+                            _model.radioButtonValue4 == '話しかけられた' ? 4 : 1,
+                        noisiness: _model.radioButtonValue5 == '話し声が多い' ? 2 : 1,
+                        bgm: () {
+                          if (_model.radioButtonValue6 == '元気系の曲') {
+                            return 3;
+                          } else if (_model.radioButtonValue6 == 'ゆったり系の曲') {
+                            return 2;
+                          } else {
+                            return 1;
+                          }
+                        }(),
+                        brightness: () {
+                          if (_model.radioButtonValue7 == '明るい') {
+                            return 3;
+                          } else if (_model.radioButtonValue7 == '程よい暗さ') {
+                            return 2;
+                          } else {
+                            return 1;
+                          }
+                        }(),
+                        shishaPicture: _model.uploadedFileUrl,
                       ),
                       ...mapToFirestore(
                         {
