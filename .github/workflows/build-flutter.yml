@@ -16,10 +16,19 @@ jobs:
       - name: Install Flutter 3.13.7
         run: |
           git clone https://github.com/flutter/flutter.git
+          pwd
+          ls
           cd flutter
+          pwd
+          ls
           git checkout 3.13.7
+          pwd
+          ls
           cd ..
+          pwd
+          ls
           echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+          echo $GITHUB_PATH
           flutter --vesion
 
       - name: Download Flutter packages
@@ -84,10 +93,19 @@ jobs:
       - name: Install Flutter 3.13.7
         run: |
           git clone https://github.com/flutter/flutter.git
+          pwd
+          ls
           cd flutter
+          pwd
+          ls
           git checkout 3.13.7
+          pwd
+          ls
           cd ..
+          pwd
+          ls
           echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+          echo $GITHUB_PATH
           flutter --vesion
 
       - name: Download Flutter packages
