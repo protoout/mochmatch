@@ -18,13 +18,7 @@ jobs:
           git clone https://github.com/flutter/flutter.git
           pwd
           ls
-          cd flutter
-          pwd
-          ls
-          git checkout 3.13.7
-          pwd
-          ls
-          cd ..
+          git -C ./flutter checkout 3.13.7
           pwd
           ls
           echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
