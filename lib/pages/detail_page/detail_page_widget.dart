@@ -13,7 +13,7 @@ export 'detail_page_model.dart';
 
 class DetailPageWidget extends StatefulWidget {
   const DetailPageWidget({
-    Key? key,
+    super.key,
     required this.name,
     required this.location,
     this.shishaPicture,
@@ -28,7 +28,7 @@ class DetailPageWidget extends StatefulWidget {
     required this.instagramUrl,
     required this.webSiteUrl,
     required this.isClosed,
-  }) : super(key: key);
+  });
 
   final String? name;
   final LatLng? location;
@@ -46,7 +46,7 @@ class DetailPageWidget extends StatefulWidget {
   final bool? isClosed;
 
   @override
-  _DetailPageWidgetState createState() => _DetailPageWidgetState();
+  State<DetailPageWidget> createState() => _DetailPageWidgetState();
 }
 
 class _DetailPageWidgetState extends State<DetailPageWidget> {
@@ -79,6 +79,8 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus

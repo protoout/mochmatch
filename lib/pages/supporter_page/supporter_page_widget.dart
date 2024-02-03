@@ -10,10 +10,10 @@ import 'supporter_page_model.dart';
 export 'supporter_page_model.dart';
 
 class SupporterPageWidget extends StatefulWidget {
-  const SupporterPageWidget({Key? key}) : super(key: key);
+  const SupporterPageWidget({super.key});
 
   @override
-  _SupporterPageWidgetState createState() => _SupporterPageWidgetState();
+  State<SupporterPageWidget> createState() => _SupporterPageWidgetState();
 }
 
 class _SupporterPageWidgetState extends State<SupporterPageWidget> {
@@ -46,6 +46,8 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus

@@ -10,6 +10,7 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '/auth/firebase_auth/auth_util.dart';
 
 String? calculateDaradara(int softnessOfChair) {
   String mochmatch_value = '';
@@ -183,4 +184,14 @@ List<double>? calculateDistanceSort(
   distances.sort();
 
   return distances;
+}
+
+LatLng convertStringToLatLng(
+  String latString,
+  String lngString,
+) {
+  // convert Srting valuable lat and lng to LatLng valuable
+  final double lat = double.parse(latString);
+  final double lng = double.parse(lngString);
+  return LatLng(lat, lng);
 }

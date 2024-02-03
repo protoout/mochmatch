@@ -10,10 +10,10 @@ import 'how_to_use_page_model.dart';
 export 'how_to_use_page_model.dart';
 
 class HowToUsePageWidget extends StatefulWidget {
-  const HowToUsePageWidget({Key? key}) : super(key: key);
+  const HowToUsePageWidget({super.key});
 
   @override
-  _HowToUsePageWidgetState createState() => _HowToUsePageWidgetState();
+  State<HowToUsePageWidget> createState() => _HowToUsePageWidgetState();
 }
 
 class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
@@ -46,6 +46,8 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
