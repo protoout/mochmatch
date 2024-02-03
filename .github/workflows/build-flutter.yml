@@ -17,9 +17,8 @@ jobs:
         run: |
           git clone https://github.com/flutter/flutter.git
           git -C ./flutter checkout 3.13.7
-          echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
-          echo $GITHUB_PATH
           sleep 120
+          echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
           flutter --vesion
 
       - name: Download Flutter packages
