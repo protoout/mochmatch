@@ -1,5 +1,11 @@
 DOCKER_COMPOSER_YML = ./.devcontainer/docker-compose.yml
 
+build-all:
+	make build-clean; \
+	make build-apk; \
+	make build-ios; \
+	make build-web;
+
 build-apk:
 	flutter build apk
 
@@ -14,12 +20,6 @@ build-clean:
 
 build-install:
 	flutter install
-
-build-all:
-	make build-clean; \
-	make build-apk; \
-	make build-ios; \
-	make build-web;
 
 dc-build: ${DOCKER_COMPOSER_YML}
 	docker compose --file=${DOCKER_COMPOSER_YML} build
