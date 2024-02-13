@@ -89,7 +89,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'ListPage',
-          path: '/listPage',
+          path: '/list',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'ListPage')
               : ListPageWidget(),
@@ -133,24 +133,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'SupporterPage',
-          path: '/supporterPage',
+          path: '/supporter',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'SupporterPage')
               : SupporterPageWidget(),
         ),
         FFRoute(
           name: 'AddPage',
-          path: '/addPage',
+          path: '/addP',
           builder: (context, params) => AddPageWidget(),
         ),
         FFRoute(
           name: 'AuthPage',
-          path: '/authPage',
+          path: '/signin',
           builder: (context, params) => AuthPageWidget(),
         ),
         FFRoute(
           name: 'ResetPasswordPage',
-          path: '/resetPasswordPage',
+          path: '/reset',
           builder: (context, params) => ResetPasswordPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -318,7 +318,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/authPage';
+            return '/signin';
           }
           return null;
         },

@@ -63,26 +63,10 @@ class FFAppState extends ChangeNotifier {
   set currentLocation(LatLng? _value) {
     _currentLocation = _value;
   }
-}
 
-LatLng? _latLngFromString(String? val) {
-  if (val == null) {
-    return null;
+  String _mochmatchvalue = '';
+  String get mochmatchvalue => _mochmatchvalue;
+  set mochmatchvalue(String _value) {
+    _mochmatchvalue = _value;
   }
-  final split = val.split(',');
-  final lat = double.parse(split.first);
-  final lng = double.parse(split.last);
-  return LatLng(lat, lng);
-}
-
-void _safeInit(Function() initializeField) {
-  try {
-    initializeField();
-  } catch (_) {}
-}
-
-Future _safeInitAsync(Function() initializeField) async {
-  try {
-    await initializeField();
-  } catch (_) {}
 }

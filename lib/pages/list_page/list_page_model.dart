@@ -4,14 +4,16 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'list_page_widget.dart' show ListPageWidget;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:text_search/text_search.dart';
 
 class ListPageModel extends FlutterFlowModel<ListPageWidget> {
   ///  Local state fields for this page.
@@ -25,7 +27,10 @@ class ListPageModel extends FlutterFlowModel<ListPageWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  List<MochmatchDataRecord> simpleSearchResults = [];
+  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
+  List<MochmatchDataRecord>? allShops;
+  // Stores action output result for [Custom Action - searchShops] action in IconButton widget.
+  List<MochmatchDataRecord>? filteredShops;
 
   /// Initialization and disposal methods.
 

@@ -73,94 +73,104 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: Image.asset(
-                    'assets/images/j7m2o_.png',
-                    width: 300.0,
-                    height: 200.0,
-                    fit: BoxFit.cover,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 90.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(0.0),
+                    child: Image.asset(
+                      'assets/images/j7m2o_.png',
+                      width: 300.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 80.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        '☁️もくまっちはその日の目的や気分にピッタリのシーシャ屋さんを見つけるアプリです',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 16.0,
-                            ),
-                      ),
-                      Text(
-                        '☁️全国のシーシャ好きが登録したシーシャ屋さんの情報が掲載されています',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 16.0,
-                            ),
-                      ),
-                      Text(
-                        'シーシャ屋さんを探す',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      Text(
-                        '①「一覧」を選択',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 16.0,
-                            ),
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/_2024-01-19_20.38.45.png',
-                          fit: BoxFit.cover,
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 80.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          '☁️もくまっちはその日の目的や気分にピッタリのシーシャ屋さんを見つけるアプリです',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
                         ),
-                      ),
-                      Text(
-                        '②その日の目的や気分で検索',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 16.0,
-                            ),
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/_2024-01-19_20.39.19.png',
-                          fit: BoxFit.cover,
+                        Text(
+                          '☁️全国のシーシャ好きが登録したシーシャ屋さんの情報が掲載されています',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
                         ),
-                      ),
-                      Text(
-                        '③ぴったりのシーシャ屋さんが見つかる',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              fontSize: 16.0,
-                            ),
-                      ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/_2024-01-19_20.55.17.png',
-                          fit: BoxFit.cover,
+                        Text(
+                          'シーシャ屋さんを探す',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         ),
-                      ),
-                    ].divide(SizedBox(height: 8.0)),
+                        Text(
+                          '①「一覧」を選択',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/_2024-01-19_20.38.45.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Text(
+                          '②その日の目的や気分で検索',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/_2024-01-19_20.39.19.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Text(
+                          '③ぴったりのシーシャ屋さんが見つかる',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/_2024-01-19_20.55.17.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ].divide(SizedBox(height: 8.0)),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
