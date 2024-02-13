@@ -30,7 +30,7 @@ dependencies:
   cloud_firestore: 4.13.1
   cloud_firestore_platform_interface: 6.0.5
   cloud_firestore_web: 3.8.5
-  collection: ^1.17.2
+  collection: 1.17.2
   file_picker: 6.1.1
   firebase_auth: 4.15.2
   firebase_auth_platform_interface: 7.0.8
@@ -88,7 +88,6 @@ dependencies:
   sign_in_with_apple_web: 1.0.1
   sqflite: 2.2.6
   stream_transform: 2.1.0
-  text_search: 1.0.1
   timeago: 3.2.2
   url_launcher: 6.1.10
   url_launcher_android: 6.0.27
