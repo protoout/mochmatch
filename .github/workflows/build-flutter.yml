@@ -80,17 +80,14 @@ jobs:
 
       - name: Install Flutter 3.13.7
         run: |
+          echo "git clone https://github.com/flutter/flutter.git"
           git clone https://github.com/flutter/flutter.git
           pwd
           ls
-          cd flutter
-          pwd
-          ls
-          git checkout 3.13.7
-          git status
-          pwd
-          ls
-          cd ..
+          echo "\ngit -C ./flutter checkout 3.13.7"
+          git -C ./flutter checkout 3.13.7
+          echo "\ngit -C ./flutter status"
+          git -C ./flutter status
           pwd
           ls
           echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
