@@ -13,11 +13,14 @@ jobs:
       - name: Checks-out my repository
         uses: actions/checkout@v2
 
-      - name: Install Flutter
-        run: git clone https://github.com/flutter/flutter.git
+      - name: Install Flutter 3.13.7
+        run: git clone https://github.com/flutter/flutter.git -b 3.13.7
 
       - name: Add path
         run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+
+      - name: Flutter version
+        run: flutter --version
 
       - name: Download Flutter packages
         run: flutter pub get
