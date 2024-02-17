@@ -3,7 +3,7 @@ name: build-flutter
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-android-and-web:
@@ -84,12 +84,17 @@ jobs:
           git clone https://github.com/flutter/flutter.git
           pwd
           ls
-          echo "\ngit -C ./flutter checkout 3.13.7"
+          echo "git -C ./flutter checkout 3.13.7"
           git -C ./flutter checkout 3.13.7
-          echo "\ngit -C ./flutter status"
+          echo "git -C ./flutter status"
           git -C ./flutter status
+          echo "pwd"
           pwd
+          echo "ls"
           ls
+          echo $(pwd)/flutter/bin
+          echo "ls $(pwd)/flutter/bin"
+          ls $(pwd)/flutter/bin
           echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
           echo $GITHUB_PATH
           flutter --vesion
