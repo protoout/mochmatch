@@ -87,6 +87,7 @@ jobs:
           pwd
           ls
           git checkout 3.13.7
+          git status
           pwd
           ls
           cd ..
