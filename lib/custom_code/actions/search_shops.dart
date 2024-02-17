@@ -12,37 +12,70 @@ Future<List<MochmatchDataRecord>> searchShops(
   List<MochmatchDataRecord> allShops,
   String searchWord,
 ) async {
-  if (searchWord.contains('#初心者')) {
-    return allShops
-        .where((MochmatchDataRecord shop) =>
-            calculateShoshinsha(shop.friendlinessOfStaffs) == searchWord)
-        .toList();
-  } else if (searchWord.contains('#集中')) {
-    return allShops
-        .where((MochmatchDataRecord shop) =>
-            calculateShuchu(shop.noisiness, shop.softnessOfChair) == searchWord)
-        .toList();
-  } else if (searchWord.contains('#ダラダラ')) {
-    return allShops
-        .where((MochmatchDataRecord shop) =>
-            calculateDaradara(shop.softnessOfChair) == searchWord)
-        .toList();
-  } else if (searchWord.contains('#まったり')) {
-    return allShops
-        .where((MochmatchDataRecord shop) =>
-            calculateMattari(shop.noisiness, shop.bgm, shop.brightness) ==
-            searchWord)
-        .toList();
-  } else if (searchWord.contains('#ワイワイ')) {
-    return allShops
-        .where((MochmatchDataRecord shop) =>
-            calculateWaiwai(
-                shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) ==
-            searchWord)
-        .toList();
-  } else {
-    return allShops
-        .where((MochmatchDataRecord shop) => shop.name.contains(searchWord))
-        .toList();
+  List<String> conditions = searchWord.split(' ');
+
+  // 最初の条件に合致するショップを取得
+  List<MochmatchDataRecord> filteredShops = [];
+  for (String condition in conditions) {
+    if (condition == '#初心者') {
+      filteredShops.addAll(allShops.where(
+          (shop) => calculateShoshinsha(shop.friendlinessOfStaffs) == '#初心者'));
+    }
+    if (condition == '#集中') {
+      filteredShops.addAll(allShops.where((shop) =>
+          calculateShuchu(shop.noisiness, shop.softnessOfChair) == '#集中'));
+    }
+    if (condition == '#ダラダラ') {
+      filteredShops.addAll(allShops
+          .where((shop) => calculateDaradara(shop.softnessOfChair) == '#ダラダラ'));
+    }
+    if (condition == '#まったり') {
+      filteredShops.addAll(allShops.where((shop) =>
+          calculateMattari(shop.noisiness, shop.bgm, shop.brightness) ==
+          '#まったり'));
+    }
+    if (condition == '#ワイワイ') {
+      filteredShops.addAll(allShops.where((shop) =>
+          calculateWaiwai(
+              shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) ==
+          '#ワイワイ'));
+    }
   }
+
+  // 各条件を満たすショップのみを抽出
+  filteredShops = filteredShops.where((shop) {
+    for (String condition in conditions) {
+      if (condition == '#初心者') {
+        if (calculateShoshinsha(shop.friendlinessOfStaffs) != '#初心者') {
+          return false;
+        }
+      }
+      if (condition == '#集中') {
+        if (calculateShuchu(shop.noisiness, shop.softnessOfChair) != '#集中') {
+          return false;
+        }
+      }
+      if (condition == '#ダラダラ') {
+        if (calculateDaradara(shop.softnessOfChair) != '#ダラダラ') {
+          return false;
+        }
+      }
+      if (condition == '#まったり') {
+        if (calculateMattari(shop.noisiness, shop.bgm, shop.brightness) !=
+            '#まったり') {
+          return false;
+        }
+      }
+      if (condition == '#ワイワイ') {
+        if (calculateWaiwai(
+                shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) !=
+            '#ワイワイ') {
+          return false;
+        }
+      }
+    }
+    return true;
+  }).toList();
+
+  return filteredShops;
 }

@@ -15,8 +15,10 @@ class HowToUsePageModel extends FlutterFlowModel<HowToUsePageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

@@ -19,8 +19,10 @@ class ResetPasswordPageModel extends FlutterFlowModel<ResetPasswordPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     emailAddressFocusNode?.dispose();
     emailAddressController?.dispose();
