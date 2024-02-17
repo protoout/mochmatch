@@ -84,6 +84,9 @@ jobs:
       - name: Add path
         run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
 
+      - name: Flutter version
+        run: flutter --version
+
       - name: Download Flutter packages
         run: flutter pub get
 
