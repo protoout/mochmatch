@@ -92,6 +92,9 @@ jobs:
       - name: Install Flutter 3.19.1
         run: git clone https://github.com/flutter/flutter.git -b 3.19.1
 
+      - name: Add path
+        run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+
       - name: Flutter version
         run: flutter --version
 
