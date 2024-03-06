@@ -1,9 +1,0 @@
-version: '3.8'
-services:
-  mochmatch-devcontainer:
-    build:
-      context: .
-      dockerfile: flutter/Dockerfile
-    volumes:
-      - ../..:/workspaces:cached
-    command: sleep infinity
