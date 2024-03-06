@@ -104,7 +104,7 @@ jobs:
 
       - name: Run flutter build
         id: build
-        run: flutter build ios --release --no-codesign --verbose
+        run: flutter build ios --release --no-codesign
 
       - name: Archive by xcodebuild
         env:
