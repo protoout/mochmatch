@@ -5,6 +5,7 @@
         "vscjava.vscode-gradle",
         "redhat.vscode-yaml",
         "davidwoo.flutter-auto-import",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "dotjoshjohnson.xml"
     ]
 }
