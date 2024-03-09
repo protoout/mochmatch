@@ -10,7 +10,10 @@ build-apk:
 	flutter build apk
 
 build-ios:
-	flutter build ios --no-codesign
+	flutter build ios --no-codesign --debug
+
+build-ipa:
+	flutter build ipa --debug
 
 build-web:
 	flutter build web
