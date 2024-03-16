@@ -6,6 +6,9 @@ build-all:
 	make build-ios; \
 	make build-web;
 
+build-android:
+	flutter build appbundle --flavor production
+
 build-apk:
 	flutter build apk
 
