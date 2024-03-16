@@ -35,7 +35,24 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 34
-    
+
+    flavorDimensions "default"
+    productFlavors {
+        develop {
+            dimension "default"
+            applicationId "com.hoge.fuga.develop"
+        }
+
+        staging {
+            dimension "default"
+            applicationId "com.hoge.fuga.staging"
+        }
+
+        production {
+            dimension "default"
+            applicationId "com.hoge.fuga"
+        }
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
