@@ -2,7 +2,6 @@
     "recommendations": [
         "dart-code.dart-code",
         "dart-code.flutter",
-        "vscjava.vscode-gradle",
         "redhat.vscode-yaml",
         "davidwoo.flutter-auto-import",
         "github.vscode-github-actions",
