@@ -69,4 +69,40 @@ class FFAppState extends ChangeNotifier {
   set mochmatchvalue(String _value) {
     _mochmatchvalue = _value;
   }
+
+  String _searchWords = '';
+  String get searchWords => _searchWords;
+  set searchWords(String _value) {
+    _searchWords = _value;
+  }
+
+  bool _disableDaradaraSearch = true;
+  bool get disableDaradaraSearch => _disableDaradaraSearch;
+  set disableDaradaraSearch(bool _value) {
+    _disableDaradaraSearch = _value;
+  }
+
+  bool _disableWaiwaiSearch = true;
+  bool get disableWaiwaiSearch => _disableWaiwaiSearch;
+  set disableWaiwaiSearch(bool _value) {
+    _disableWaiwaiSearch = _value;
+  }
+
+  bool _disableMattariSearch = true;
+  bool get disableMattariSearch => _disableMattariSearch;
+  set disableMattariSearch(bool _value) {
+    _disableMattariSearch = _value;
+  }
+
+  bool _disableShuchuSearch = true;
+  bool get disableShuchuSearch => _disableShuchuSearch;
+  set disableShuchuSearch(bool _value) {
+    _disableShuchuSearch = _value;
+  }
+
+  bool _disableShoshinshaSearch = true;
+  bool get disableShoshinshaSearch => _disableShoshinshaSearch;
+  set disableShoshinshaSearch(bool _value) {
+    _disableShoshinshaSearch = _value;
+  }
 }

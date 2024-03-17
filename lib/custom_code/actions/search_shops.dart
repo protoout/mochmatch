@@ -12,7 +12,20 @@ Future<List<MochmatchDataRecord>> searchShops(
   List<MochmatchDataRecord> allShops,
   String searchWord,
 ) async {
-  List<String> conditions = searchWord.split(' ');
+  List<String> conditions = [];
+
+  // 半角スペースまたは全角スペースで分割して条件リストに追加
+  if (searchWord.trim().isNotEmpty &&
+      (searchWord.contains(' ') || searchWord.contains('　'))) {
+    conditions.addAll(searchWord.split(RegExp(r'\s+')));
+  } else {
+    conditions.add(searchWord);
+  }
+
+  // searchWordが空文字列の場合、すべてのショップを絞り込まずにそのまま返す
+  if (searchWord.trim().isEmpty) {
+    return allShops;
+  }
 
   // 最初の条件に合致するショップを取得
   List<MochmatchDataRecord> filteredShops = [];
@@ -39,6 +52,12 @@ Future<List<MochmatchDataRecord>> searchShops(
           calculateWaiwai(
               shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) ==
           '#ワイワイ'));
+    }
+
+    // searchWordが店名の場合、店名の部分一致で絞り込み
+    if (!condition.startsWith('#')) {
+      filteredShops.addAll(allShops.where(
+          (shop) => shop.name.toLowerCase().contains(condition.toLowerCase())));
     }
   }
 
@@ -70,6 +89,11 @@ Future<List<MochmatchDataRecord>> searchShops(
         if (calculateWaiwai(
                 shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) !=
             '#ワイワイ') {
+          return false;
+        }
+      }
+      if (!condition.startsWith('#')) {
+        if (!shop.name.toLowerCase().contains(condition.toLowerCase())) {
           return false;
         }
       }

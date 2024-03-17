@@ -71,8 +71,6 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -223,9 +221,36 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
-                        Text(
-                          '10.26 km',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              '10.26 km',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Text(
+                              '　',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                            Builder(
+                              builder: (context) {
+                                if (widget.isClosed ?? false) {
+                                  return Text(
+                                    '閉店',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  );
+                                } else {
+                                  return Text(
+                                    '　',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  );
+                                }
+                              },
+                            ),
+                          ],
                         ),
                       ],
                     ),

@@ -13,8 +13,8 @@ jobs:
       - name: Checks-out my repository
         uses: actions/checkout@v2
 
-      - name: Install Flutter 3.13.7
-        run: git clone https://github.com/flutter/flutter.git -b 3.13.7
+      - name: Install Flutter 3.19.1
+        run: git clone https://github.com/flutter/flutter.git -b 3.19.1
 
       - name: Add path
         run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
@@ -76,7 +76,7 @@ jobs:
 
   build-ios:
     runs-on: macos-latest
-    timeout-minutes: 30
+    name: Build for iOS
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -89,11 +89,14 @@ jobs:
           mkdir ./private_keys
           echo -n "$APPLE_API_AUTHKEY_P8_BASE64" | base64 --decode --output ./private_keys/AuthKey_$APPLE_API_KEY_ID.p8
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-          cache: true
+      - name: Install Flutter 3.19.1
+        run: git clone https://github.com/flutter/flutter.git -b 3.19.1
+
+      - name: Add path
+        run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+
+      - name: Flutter version
+        run: flutter --version
 
       - name: Run flutter pub get
         run: flutter pub get
