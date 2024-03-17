@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -25,84 +24,84 @@ class FFAppState extends ChangeNotifier {
 
   LatLng? _shishaLocation;
   LatLng? get shishaLocation => _shishaLocation;
-  set shishaLocation(LatLng? _value) {
-    _shishaLocation = _value;
+  set shishaLocation(LatLng? value) {
+    _shishaLocation = value;
   }
 
   List<String> _shishaLocationList = [];
   List<String> get shishaLocationList => _shishaLocationList;
-  set shishaLocationList(List<String> _value) {
-    _shishaLocationList = _value;
+  set shishaLocationList(List<String> value) {
+    _shishaLocationList = value;
   }
 
-  void addToShishaLocationList(String _value) {
-    _shishaLocationList.add(_value);
+  void addToShishaLocationList(String value) {
+    _shishaLocationList.add(value);
   }
 
-  void removeFromShishaLocationList(String _value) {
-    _shishaLocationList.remove(_value);
+  void removeFromShishaLocationList(String value) {
+    _shishaLocationList.remove(value);
   }
 
-  void removeAtIndexFromShishaLocationList(int _index) {
-    _shishaLocationList.removeAt(_index);
+  void removeAtIndexFromShishaLocationList(int index) {
+    _shishaLocationList.removeAt(index);
   }
 
   void updateShishaLocationListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _shishaLocationList[_index] = updateFn(_shishaLocationList[_index]);
+    _shishaLocationList[index] = updateFn(_shishaLocationList[index]);
   }
 
-  void insertAtIndexInShishaLocationList(int _index, String _value) {
-    _shishaLocationList.insert(_index, _value);
+  void insertAtIndexInShishaLocationList(int index, String value) {
+    _shishaLocationList.insert(index, value);
   }
 
   LatLng? _currentLocation;
   LatLng? get currentLocation => _currentLocation;
-  set currentLocation(LatLng? _value) {
-    _currentLocation = _value;
+  set currentLocation(LatLng? value) {
+    _currentLocation = value;
   }
 
   String _mochmatchvalue = '';
   String get mochmatchvalue => _mochmatchvalue;
-  set mochmatchvalue(String _value) {
-    _mochmatchvalue = _value;
+  set mochmatchvalue(String value) {
+    _mochmatchvalue = value;
   }
 
   String _searchWords = '';
   String get searchWords => _searchWords;
-  set searchWords(String _value) {
-    _searchWords = _value;
+  set searchWords(String value) {
+    _searchWords = value;
   }
 
   bool _disableDaradaraSearch = true;
   bool get disableDaradaraSearch => _disableDaradaraSearch;
-  set disableDaradaraSearch(bool _value) {
-    _disableDaradaraSearch = _value;
+  set disableDaradaraSearch(bool value) {
+    _disableDaradaraSearch = value;
   }
 
   bool _disableWaiwaiSearch = true;
   bool get disableWaiwaiSearch => _disableWaiwaiSearch;
-  set disableWaiwaiSearch(bool _value) {
-    _disableWaiwaiSearch = _value;
+  set disableWaiwaiSearch(bool value) {
+    _disableWaiwaiSearch = value;
   }
 
   bool _disableMattariSearch = true;
   bool get disableMattariSearch => _disableMattariSearch;
-  set disableMattariSearch(bool _value) {
-    _disableMattariSearch = _value;
+  set disableMattariSearch(bool value) {
+    _disableMattariSearch = value;
   }
 
   bool _disableShuchuSearch = true;
   bool get disableShuchuSearch => _disableShuchuSearch;
-  set disableShuchuSearch(bool _value) {
-    _disableShuchuSearch = _value;
+  set disableShuchuSearch(bool value) {
+    _disableShuchuSearch = value;
   }
 
   bool _disableShoshinshaSearch = true;
   bool get disableShoshinshaSearch => _disableShoshinshaSearch;
-  set disableShoshinshaSearch(bool _value) {
-    _disableShoshinshaSearch = _value;
+  set disableShoshinshaSearch(bool value) {
+    _disableShoshinshaSearch = value;
   }
 }

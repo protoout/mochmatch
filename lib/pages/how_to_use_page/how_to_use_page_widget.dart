@@ -1,10 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'how_to_use_page_model.dart';
 export 'how_to_use_page_model.dart';
 
@@ -55,14 +51,14 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 90.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 90.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -79,7 +75,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 80.0),
+                        const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 80.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -135,7 +131,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
-                            'assets/images/_2024-01-19_20.39.19.png',
+                            'assets/images/_2024-03-12_12.39.12.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -150,11 +146,66 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
-                            'assets/images/_2024-01-19_20.55.17.png',
+                            'assets/images/_2024-03-12_12.39.40.png',
                             fit: BoxFit.cover,
                           ),
                         ),
-                      ].divide(SizedBox(height: 8.0)),
+                        Text(
+                          'シーシャ屋さんを登録する',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                        Text(
+                          '①一覧ページ右上の「+」を押す',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/_2024-03-12_12.43.32.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Text(
+                          '②訪れたシーシャ屋さんの情報を入力',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/_2024-03-12_12.45.35.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Text(
+                          '③登録ボタンで登録\n※反映に時間がかかります',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 16.0,
+                                  ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/_2024-03-12_12.45.54.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ].divide(const SizedBox(height: 8.0)),
                     ),
                   ),
                 ],

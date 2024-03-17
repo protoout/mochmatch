@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'auth_page_model.dart';
 export 'auth_page_model.dart';
 
@@ -41,15 +39,15 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 60.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 60.0),
+          end: const Offset(0.0, 0.0),
         ),
         TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: Offset(-0.349, 0),
-          end: Offset(0, 0),
+          begin: const Offset(-0.349, 0),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -67,15 +65,15 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: Offset(0.0, 60.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 60.0),
+          end: const Offset(0.0, 0.0),
         ),
         TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: Offset(-0.349, 0),
-          end: Offset(0, 0),
+          begin: const Offset(-0.349, 0),
+          end: const Offset(0, 0),
         ),
       ],
     ),
@@ -140,37 +138,37 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  alignment: AlignmentDirectional(0.0, -1.0),
+                  alignment: const AlignmentDirectional(0.0, -1.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 100.0, 0.0, 0.0),
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
                                 bottomRight: Radius.circular(16.0),
                                 topLeft: Radius.circular(0.0),
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         32.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'もくまっちへようこそ',
@@ -185,7 +183,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                         ),
                         Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 579.0,
                           ),
                           decoration: BoxDecoration(
@@ -193,7 +191,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                 .secondaryBackground,
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(4.0),
+                            padding: const EdgeInsets.all(4.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +200,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           32.0, 24.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -232,7 +230,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           32.0, 24.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -265,9 +263,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                 ),
                                 if (_model.create == false)
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(12.0),
+                                      padding: const EdgeInsets.all(12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -275,9 +273,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
-                                            child: Container(
+                                            child: SizedBox(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller: _model
@@ -285,7 +283,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 focusNode: _model
                                                     .emailAddressFocusNode,
                                                 autofocus: true,
-                                                autofillHints: [
+                                                autofillHints: const [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -353,7 +351,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                               context)
                                                           .secondaryBackground,
                                                   contentPadding:
-                                                      EdgeInsets.all(24.0),
+                                                      const EdgeInsets.all(24.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -368,16 +366,16 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
-                                            child: Container(
+                                            child: SizedBox(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller:
                                                     _model.passwordController,
                                                 focusNode:
                                                     _model.passwordFocusNode,
-                                                autofillHints: [
+                                                autofillHints: const [
                                                   AutofillHints.password
                                                 ],
                                                 obscureText:
@@ -446,7 +444,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                               context)
                                                           .secondaryBackground,
                                                   contentPadding:
-                                                      EdgeInsets.all(24.0),
+                                                      const EdgeInsets.all(24.0),
                                                   suffixIcon: InkWell(
                                                     onTap: () => setState(
                                                       () => _model
@@ -481,9 +479,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
@@ -512,11 +510,11 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 options: FFButtonOptions(
                                                   width: 230.0,
                                                   height: 52.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -532,7 +530,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                             color: Colors.white,
                                                           ),
                                                   elevation: 3.0,
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -545,9 +543,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
@@ -559,11 +557,11 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 options: FFButtonOptions(
                                                   width: 230.0,
                                                   height: 44.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -587,221 +585,6 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                               ),
                                             ),
                                           ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 0.0, 16.0,
-                                                          24.0),
-                                                  child: Text(
-                                                    'Or sign up with',
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium,
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 16.0),
-                                                  child: Wrap(
-                                                    spacing: 16.0,
-                                                    runSpacing: 0.0,
-                                                    alignment:
-                                                        WrapAlignment.center,
-                                                    crossAxisAlignment:
-                                                        WrapCrossAlignment
-                                                            .center,
-                                                    direction: Axis.horizontal,
-                                                    runAlignment:
-                                                        WrapAlignment.center,
-                                                    verticalDirection:
-                                                        VerticalDirection.down,
-                                                    clipBehavior: Clip.none,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    16.0),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            GoRouter.of(context)
-                                                                .prepareAuthEvent();
-                                                            final user =
-                                                                await authManager
-                                                                    .signInWithGoogle(
-                                                                        context);
-                                                            if (user == null) {
-                                                              return;
-                                                            }
-
-                                                            context.pushNamedAuth(
-                                                                'ListPage',
-                                                                context
-                                                                    .mounted);
-                                                          },
-                                                          text:
-                                                              'Continue with Google',
-                                                          icon: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .google,
-                                                            size: 20.0,
-                                                          ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            width: 230.0,
-                                                            height: 44.0,
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    ),
-                                                            elevation: 0.0,
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .alternate,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        40.0),
-                                                            hoverColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      isAndroid
-                                                          ? Container()
-                                                          : Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0),
-                                                              child:
-                                                                  FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  GoRouter.of(
-                                                                          context)
-                                                                      .prepareAuthEvent();
-                                                                  final user =
-                                                                      await authManager
-                                                                          .signInWithApple(
-                                                                              context);
-                                                                  if (user ==
-                                                                      null) {
-                                                                    return;
-                                                                  }
-
-                                                                  context.pushNamedAuth(
-                                                                      'ListPage',
-                                                                      context
-                                                                          .mounted);
-                                                                },
-                                                                text:
-                                                                    'Continue with Apple',
-                                                                icon: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .apple,
-                                                                  size: 20.0,
-                                                                ),
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: 230.0,
-                                                                  height: 44.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                                  elevation:
-                                                                      0.0,
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                                    width: 2.0,
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              40.0),
-                                                                  hoverColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
                                         ],
                                       ).animateOnPageLoad(animationsMap[
                                           'columnOnPageLoadAnimation1']!),
@@ -809,9 +592,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                   ),
                                 if (_model.create == true)
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(12.0),
+                                      padding: const EdgeInsets.all(12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -819,9 +602,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
-                                            child: Container(
+                                            child: SizedBox(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller: _model
@@ -829,7 +612,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 focusNode: _model
                                                     .emailAddressCreateFocusNode,
                                                 autofocus: true,
-                                                autofillHints: [
+                                                autofillHints: const [
                                                   AutofillHints.email
                                                 ],
                                                 obscureText: false,
@@ -841,7 +624,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                           .bodySmall,
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0xFFE0E3E7),
                                                       width: 2.0,
                                                     ),
@@ -894,7 +677,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                               context)
                                                           .secondaryBackground,
                                                   contentPadding:
-                                                      EdgeInsets.all(24.0),
+                                                      const EdgeInsets.all(24.0),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -909,16 +692,16 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
-                                            child: Container(
+                                            child: SizedBox(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller: _model
                                                     .passwordCreateController,
                                                 focusNode: _model
                                                     .passwordCreateFocusNode,
-                                                autofillHints: [
+                                                autofillHints: const [
                                                   AutofillHints.password
                                                 ],
                                                 obscureText: !_model
@@ -931,7 +714,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                           .bodySmall,
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0xFFE0E3E7),
                                                       width: 2.0,
                                                     ),
@@ -984,7 +767,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                               context)
                                                           .secondaryBackground,
                                                   contentPadding:
-                                                      EdgeInsets.all(24.0),
+                                                      const EdgeInsets.all(24.0),
                                                   suffixIcon: InkWell(
                                                     onTap: () => setState(
                                                       () => _model
@@ -1019,16 +802,16 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 16.0),
-                                            child: Container(
+                                            child: SizedBox(
                                               width: double.infinity,
                                               child: TextFormField(
                                                 controller: _model
                                                     .passwordConfirmController,
                                                 focusNode: _model
                                                     .passwordConfirmFocusNode,
-                                                autofillHints: [
+                                                autofillHints: const [
                                                   AutofillHints.password
                                                 ],
                                                 obscureText: !_model
@@ -1041,7 +824,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                           .bodySmall,
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0xFFE0E3E7),
                                                       width: 2.0,
                                                     ),
@@ -1094,7 +877,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                               context)
                                                           .secondaryBackground,
                                                   contentPadding:
-                                                      EdgeInsets.all(24.0),
+                                                      const EdgeInsets.all(24.0),
                                                   suffixIcon: InkWell(
                                                     onTap: () => setState(
                                                       () => _model
@@ -1130,9 +913,9 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
@@ -1148,7 +931,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
-                                                      SnackBar(
+                                                      const SnackBar(
                                                         content: Text(
                                                           'Passwords don\'t match!',
                                                         ),
@@ -1179,11 +962,11 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 options: FFButtonOptions(
                                                   width: 230.0,
                                                   height: 52.0,
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 0.0),
                                                   iconPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
@@ -1199,7 +982,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                             color: Colors.white,
                                                           ),
                                                   elevation: 3.0,
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -1214,10 +997,10 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(16.0, 0.0, 16.0,
                                                           24.0),
                                                   child: Text(
@@ -1230,10 +1013,10 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: Wrap(
@@ -1253,7 +1036,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -1278,7 +1061,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                           },
                                                           text:
                                                               'Continue with Google',
-                                                          icon: FaIcon(
+                                                          icon: const FaIcon(
                                                             FontAwesomeIcons
                                                                 .google,
                                                             size: 20.0,
@@ -1288,14 +1071,14 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                             width: 230.0,
                                                             height: 44.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1338,7 +1121,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                           ? Container()
                                                           : Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1367,7 +1150,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                                 },
                                                                 text:
                                                                     'Continue with Apple',
-                                                                icon: FaIcon(
+                                                                icon: const FaIcon(
                                                                   FontAwesomeIcons
                                                                       .apple,
                                                                   size: 20.0,
@@ -1376,13 +1159,13 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                                     FFButtonOptions(
                                                                   width: 230.0,
                                                                   height: 44.0,
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
+                                                                  iconPadding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1447,13 +1230,13 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                 Expanded(
                   flex: 6,
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Container(
                       width: 100.0,
                       height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: CachedNetworkImageProvider(
                             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/f-f-games-660ryh/assets/41gtlg4nnch2/demoProject@2x.jpg',

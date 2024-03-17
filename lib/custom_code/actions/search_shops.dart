@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 Future<List<MochmatchDataRecord>> searchShops(
   List<MochmatchDataRecord> allShops,
   String searchWord,
+  LatLng currentLocation,
 ) async {
   List<String> conditions = [];
 
@@ -22,10 +23,28 @@ Future<List<MochmatchDataRecord>> searchShops(
     conditions.add(searchWord);
   }
 
-  // searchWordが空文字列の場合、すべてのショップを絞り込まずにそのまま返す
   if (searchWord.trim().isEmpty) {
+    allShops.sort((a, b) {
+      if (a.location != null && b.location != null) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     return allShops;
   }
+
+  // if (searchWord.trim().isEmpty) {
+  //   allShops.sort((a, b) {
+  //     if (a.location != null && b.location != null) {
+  //       return calculateDistanceAsDouble(a.location!, currentLocation)
+  //           .compareTo(calculateDistanceAsDouble(b.location!, currentLocation));
+  //     } else {
+  //       return 0;
+  //     }
+  //   });
+  //   return allShops;
+  // }
 
   // 最初の条件に合致するショップを取得
   List<MochmatchDataRecord> filteredShops = [];

@@ -7,10 +7,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'list_page_model.dart';
 export 'list_page_model.dart';
@@ -33,7 +31,13 @@ class _ListPageWidgetState extends State<ListPageWidget> {
     super.initState();
     _model = createModel(context, () => ListPageModel());
 
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.allShops2 = await queryMochmatchDataRecordOnce();
+      setState(() {});
+    });
+
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
@@ -78,20 +82,20 @@ class _ListPageWidgetState extends State<ListPageWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondary,
           automaticallyImplyLeading: false,
-          actions: [],
+          actions: const [],
           flexibleSpace: FlexibleSpaceBar(
             title: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           '一覧',
                           textAlign: TextAlign.center,
@@ -123,7 +127,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -135,22 +139,22 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return AlertDialog(
-                                              title: Text('ログアウト'),
-                                              content: Text('ログアウトしますか'),
+                                              title: const Text('ログアウト'),
+                                              content: const Text('ログアウトしますか'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           alertDialogContext,
                                                           false),
-                                                  child: Text('キャンセル'),
+                                                  child: const Text('キャンセル'),
                                                 ),
                                                 TextButton(
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           alertDialogContext,
                                                           true),
-                                                  child: Text('ログアウト'),
+                                                  child: const Text('ログアウト'),
                                                 ),
                                               ],
                                             );
@@ -203,9 +207,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                       children: [
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 10.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textController,
@@ -256,7 +260,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 6.0, 0.0),
                           child: StreamBuilder<List<MochmatchDataRecord>>(
                             stream: queryMochmatchDataRecord(
@@ -303,6 +307,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
+                                  currentUserLocationValue =
+                                      await getCurrentUserLocation(
+                                          defaultLocation: const LatLng(0.0, 0.0));
                                   _model.allShops =
                                       await queryMochmatchDataRecordOnce();
                                   setState(() {
@@ -312,6 +319,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                       await actions.searchShops(
                                     _model.allShops!.toList(),
                                     _model.textController.text,
+                                    currentUserLocationValue!,
                                   );
 
                                   setState(() {});
@@ -324,7 +332,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -352,9 +360,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: 'ダラダラ',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -365,7 +373,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -391,9 +399,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: 'ダラダラ',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -405,7 +413,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -438,9 +446,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: 'ワイワイ',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -452,7 +460,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -478,9 +486,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: 'ワイワイ',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -493,7 +501,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -526,9 +534,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: 'まったり',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -538,7 +546,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -566,9 +574,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: 'まったり',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -579,7 +587,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -610,9 +618,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: '集中',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -622,7 +630,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -648,9 +656,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: '集中',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -661,7 +669,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -693,9 +701,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: '初心者',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -705,7 +713,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -731,9 +739,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                   text: '初心者',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -744,7 +752,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                           fontSize: 14.0,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -755,9 +763,9 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                             },
                           ),
                         ]
-                            .divide(SizedBox(width: 3.0))
-                            .addToStart(SizedBox(width: 3.0))
-                            .addToEnd(SizedBox(width: 3.0)),
+                            .divide(const SizedBox(width: 3.0))
+                            .addToStart(const SizedBox(width: 3.0))
+                            .addToEnd(const SizedBox(width: 3.0)),
                       ),
                     ),
                     Divider(
@@ -771,12 +779,12 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Builder(
                           builder: (context) {
                             if (_model.isShowFullList) {
                               return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 8.0, 8.0, 80.0),
                                 child: FutureBuilder<List<MochmatchDataRecord>>(
                                   future: queryMochmatchDataRecordOnce(
@@ -937,7 +945,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: Column(
                                                               mainAxisSize:
@@ -952,7 +960,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                               children: [
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -0.5,
                                                                           0.0),
                                                                   child:
@@ -1026,7 +1034,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                                       onTap:
                                                                           () async {
                                                                         currentUserLocationValue =
-                                                                            await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+                                                                            await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
                                                                       },
                                                                       child:
                                                                           Text(
@@ -1051,18 +1059,18 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                                               context)
                                                                           .bodyMedium,
                                                                     ),
-                                                                  ].divide(SizedBox(
+                                                                  ].divide(const SizedBox(
                                                                       width:
                                                                           15.0)),
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   height: 2.0)),
                                                             ),
                                                           ),
                                                           Expanded(
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       1.0, 0.0),
                                                               child: Hero(
                                                                 tag:
@@ -1070,8 +1078,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                                         String>(
                                                                   listViewMochmatchDataRecord
                                                                       .shishaPicture,
-                                                                  'https://media.discordapp.net/attachments/1177153383119994942/1188715756750381097/7294e0c6a45f6d6b.png?ex=659b88d1&is=658913d1&hm=a9b7e467351720378e5d4658a1f9aa4f4eec517d6a0fbace5b1a441ea542217a&=&format=webp&quality=lossless&width=625&height=625' +
-                                                                      '$listViewIndex',
+                                                                  'https://media.discordapp.net/attachments/1177153383119994942/1188715756750381097/7294e0c6a45f6d6b.png?ex=659b88d1&is=658913d1&hm=a9b7e467351720378e5d4658a1f9aa4f4eec517d6a0fbace5b1a441ea542217a&=&format=webp&quality=lossless&width=625&height=625' '$listViewIndex',
                                                                 ),
                                                                 transitionOnUserGestures:
                                                                     true,
@@ -1095,7 +1102,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                                     fit: BoxFit
                                                                         .fill,
                                                                     alignment:
-                                                                        Alignment(
+                                                                        const Alignment(
                                                                             0.0,
                                                                             0.0),
                                                                   ),
@@ -1103,7 +1110,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                               ),
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 8.0)),
                                                       ),
                                                     ),
@@ -1124,7 +1131,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                               );
                             } else {
                               return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 8.0, 8.0, 80.0),
                                 child: Builder(
                                   builder: (context) {
@@ -1265,7 +1272,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       -0.5,
                                                                       0.0),
                                                               child:
@@ -1340,7 +1347,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                                           context)
                                                                       .bodyMedium,
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   width: 15.0)),
                                                             ),
                                                           ],
@@ -1348,7 +1355,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                         Expanded(
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     1.0, 0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
@@ -1364,7 +1371,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                                 fit: BoxFit
                                                                     .contain,
                                                                 alignment:
-                                                                    Alignment(
+                                                                    const Alignment(
                                                                         1.0,
                                                                         0.0),
                                                               ),

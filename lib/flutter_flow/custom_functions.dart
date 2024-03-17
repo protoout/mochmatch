@@ -32,6 +32,37 @@ String? calculateShoshinsha(int friendlinessOfStaffs) {
   return mochmatch_value;
 }
 
+double calculateDistanceAsDouble(
+  LatLng shishaLocation,
+  LatLng currentLocation,
+) {
+  // Calculate the distance from the longitude and latitude of shishaLocation and currentLocation.
+  final double earthRadius = 6371.0;
+  final double lat1 = shishaLocation.latitude;
+  final double lon1 = shishaLocation.longitude;
+  final double lat2 = currentLocation.latitude;
+  final double lon2 = currentLocation.longitude;
+
+  double _toRadians(double degree) {
+    return degree * (math.pi / 180.0);
+  }
+
+  final double dLat = _toRadians(lat2 - lat1);
+  final double dLon = _toRadians(lon2 - lon1);
+
+  final double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+      math.cos(_toRadians(lat1)) *
+          math.cos(_toRadians(lat2)) *
+          math.sin(dLon / 2) *
+          math.sin(dLon / 2);
+
+  final double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+
+  final double distance = earthRadius * c;
+
+  return distance;
+}
+
 String calculateDistance(
   LatLng shishaLocation,
   LatLng currentLocation,
@@ -194,4 +225,9 @@ LatLng convertStringToLatLng(
   final double lat = double.parse(latString);
   final double lng = double.parse(lngString);
   return LatLng(lat, lng);
+}
+
+List<MochmatchDataRecord> sortShopsByDistance(
+    List<MochmatchDataRecord> allshops) {
+  return allshops;
 }

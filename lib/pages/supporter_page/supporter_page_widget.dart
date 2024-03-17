@@ -1,10 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'supporter_page_model.dart';
 export 'supporter_page_model.dart';
 
@@ -55,20 +51,20 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 90.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 90.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(2.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: Text(
                       'スポンサー',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -90,11 +86,11 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(5.0),
+                              padding: const EdgeInsets.all(5.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
                                 child: Image.asset(
@@ -108,15 +104,15 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'はちグラム',
                                     textAlign: TextAlign.start,
@@ -130,7 +126,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                 ),
                                 Container(
                                   width: 260.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Text(
                                     'はちグラムは、東京のややオシャレタウン、高円寺と吉祥寺と祐天寺にあるシーシャ(水タバコ)の吸える専門店です。',
                                     style:
@@ -148,7 +144,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0),
                         child: Text(
                           'プレミアムサポーター',
                           style:
@@ -174,7 +170,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -186,7 +182,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'じぇーけーそふと',
                                     textAlign: TextAlign.center,
@@ -212,7 +208,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -224,7 +220,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'くりう\n(ゆっきー)',
                                     textAlign: TextAlign.center,
@@ -250,7 +246,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -262,7 +258,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'あきお',
                                     textAlign: TextAlign.center,
@@ -285,7 +281,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0),
                         child: Text(
                           'サポーター',
                           style:
@@ -311,7 +307,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -323,7 +319,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'もな',
                                     textAlign: TextAlign.center,
@@ -349,7 +345,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -361,7 +357,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'ゆい',
                                     textAlign: TextAlign.center,
@@ -387,7 +383,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -399,7 +395,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Satomi',
                                     textAlign: TextAlign.center,
@@ -436,7 +432,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -448,7 +444,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'だも',
                                     textAlign: TextAlign.center,
@@ -474,7 +470,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -486,7 +482,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'きたむ〜',
                                     textAlign: TextAlign.center,
@@ -512,7 +508,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -524,7 +520,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'おきなかがいこつ',
                                     textAlign: TextAlign.center,
@@ -561,7 +557,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -573,7 +569,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'おり',
                                     textAlign: TextAlign.center,
@@ -599,7 +595,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -611,7 +607,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'よしだじゅんや\nシバコロ',
                                     textAlign: TextAlign.center,
@@ -637,7 +633,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10.0),
                                     child: Image.asset(
@@ -649,7 +645,7 @@ class _SupporterPageWidgetState extends State<SupporterPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'ねくたりん',
                                     textAlign: TextAlign.center,

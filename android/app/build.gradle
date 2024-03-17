@@ -35,23 +35,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 34
-
-    flavorDimensions "default"
-    productFlavors {
-        develop {
-            dimension "default"
-            applicationIdSuffix ".develop"
-        }
-
-        staging {
-            dimension "default"
-            applicationIdSuffix ".staging"
-        }
-
-        production {
-            dimension "default"
-        }
-    }
+    
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -64,7 +48,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "studio.protoout.miliconvalley.mochmatch"
+        applicationId "com.mycompany.mochmatch"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
@@ -84,7 +68,7 @@ android {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
         }
     }
 }

@@ -10,9 +10,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class DayOfWeekRecord extends FirestoreRecord {
   DayOfWeekRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
