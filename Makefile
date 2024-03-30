@@ -24,3 +24,6 @@ build-clean:
 
 build-install:
 	flutter install
+
+debug:
+	flutter run
