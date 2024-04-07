@@ -81,7 +81,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: Align(
-          alignment: const AlignmentDirectional(1.0, 0.9),
+          alignment: const AlignmentDirectional(1.0, 0.6),
           child: FloatingActionButton(
             onPressed: () async {
               if (_model.isShowFullList) {
@@ -140,19 +140,23 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('AddPage');
-                            },
-                            child: Icon(
-                              Icons.add_box,
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              size: 32.0,
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 6.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('AddPage');
+                              },
+                              child: Icon(
+                                Icons.add_box,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 32.0,
+                              ),
                             ),
                           ),
                           Align(
