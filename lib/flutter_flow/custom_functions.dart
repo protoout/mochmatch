@@ -63,37 +63,6 @@ double calculateDistanceAsDouble(
   return distance;
 }
 
-String calculateDistance(
-  LatLng shishaLocation,
-  LatLng currentLocation,
-) {
-  // Calculate the distance from the longitude and latitude of shishaLocation and currentLocation.
-  final double earthRadius = 6371.0;
-  final double lat1 = shishaLocation.latitude;
-  final double lon1 = shishaLocation.longitude;
-  final double lat2 = currentLocation.latitude;
-  final double lon2 = currentLocation.longitude;
-
-  double _toRadians(double degree) {
-    return degree * (math.pi / 180.0);
-  }
-
-  final double dLat = _toRadians(lat2 - lat1);
-  final double dLon = _toRadians(lon2 - lon1);
-
-  final double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
-      math.cos(_toRadians(lat1)) *
-          math.cos(_toRadians(lat2)) *
-          math.sin(dLon / 2) *
-          math.sin(dLon / 2);
-
-  final double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
-
-  final double distance = earthRadius * c;
-
-  return '${distance.toStringAsFixed(2)} km';
-}
-
 String? calculateMattari(
   int noisiness,
   int bgm,
@@ -181,42 +150,6 @@ String? calculateMochmatch(
   return mochmatch_value;
 }
 
-List<double>? calculateDistanceSort(
-  List<LatLng>? shopLocation,
-  List<LatLng>? currentLocation,
-) {
-  // After calculating the distance from the longitude and latitude of two points, sort in ascending
-  List<double>? distances = [];
-
-  if (shopLocation == null || currentLocation == null) {
-    return null;
-  }
-
-  for (int i = 0; i < shopLocation.length; i++) {
-    double lat1 = shopLocation[i].latitude;
-    double lon1 = shopLocation[i].longitude;
-    double lat2 = currentLocation[0].latitude;
-    double lon2 = currentLocation[0].longitude;
-
-    double theta = lon1 - lon2;
-    double dist = math.sin(lat1 * (math.pi / 180.0)) *
-            math.sin(lat2 * (math.pi / 180.0)) +
-        math.cos(lat1 * (math.pi / 180.0)) *
-            math.cos(lat2 * (math.pi / 180.0)) *
-            math.cos(theta * (math.pi / 180.0));
-    dist = math.acos(dist);
-    dist = dist * (180.0 / math.pi);
-    dist = dist * 60 * 1.1515;
-    dist = dist * 1.609344;
-
-    distances.add(dist);
-  }
-
-  distances.sort();
-
-  return distances;
-}
-
 LatLng convertStringToLatLng(
   String latString,
   String lngString,
@@ -225,9 +158,4 @@ LatLng convertStringToLatLng(
   final double lat = double.parse(latString);
   final double lng = double.parse(lngString);
   return LatLng(lat, lng);
-}
-
-List<MochmatchDataRecord> sortShopsByDistance(
-    List<MochmatchDataRecord> allshops) {
-  return allshops;
 }

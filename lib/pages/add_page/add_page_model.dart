@@ -40,8 +40,6 @@ class AddPageModel extends FlutterFlowModel<AddPageWidget> {
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController7;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     textControllerValidator = _textControllerValidator;
@@ -54,10 +52,7 @@ class AddPageModel extends FlutterFlowModel<AddPageWidget> {
     textController?.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   String? get radioButtonValue1 => radioButtonValueController1?.value;
   String? get radioButtonValue2 => radioButtonValueController2?.value;
   String? get radioButtonValue3 => radioButtonValueController3?.value;

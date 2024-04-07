@@ -11,8 +11,6 @@ class ListPageModel extends FlutterFlowModel<ListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Firestore Query - Query a collection] action in ListPage widget.
-  List<MochmatchDataRecord>? allShops2;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -41,20 +39,24 @@ class ListPageModel extends FlutterFlowModel<ListPageWidget> {
   String? addShoshinsha;
   // Stores action output result for [Custom Action - removeShoshinshaSearch] action in Button widget.
   String? removeShoshinsha;
-
-  /// Initialization and disposal methods.
+  // State field(s) for ListView widget.
+  ScrollController? listViewController1;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController2;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    listViewController1 = ScrollController();
+    listViewController2 = ScrollController();
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    listViewController1?.dispose();
+    listViewController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

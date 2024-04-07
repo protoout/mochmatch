@@ -49,6 +49,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                   fontFamily: 'Outfit',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
@@ -85,6 +86,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         Text(
@@ -93,6 +95,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         Text(
@@ -102,6 +105,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -111,6 +115,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         ClipRRect(
@@ -126,6 +131,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         ClipRRect(
@@ -141,6 +147,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         ClipRRect(
@@ -156,6 +163,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 24.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -165,6 +173,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         ClipRRect(
@@ -180,6 +189,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         ClipRRect(
@@ -196,6 +206,7 @@ class _HowToUsePageWidgetState extends State<HowToUsePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                         ClipRRect(

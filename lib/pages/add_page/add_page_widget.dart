@@ -58,6 +58,7 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                   fontFamily: 'Outfit',
                   color: Colors.white,
                   fontSize: 20.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
@@ -87,7 +88,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                           Text(
                             '①店名',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
@@ -99,10 +105,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: '店名を入力',
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -133,7 +147,13 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: null,
                               validator: _model.textControllerValidator
                                   .asValidator(context),
                             ),
@@ -164,7 +184,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '②今日のシーシャ',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -241,6 +266,7 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: const BorderSide(
@@ -302,7 +328,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '③曜日',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options: ['月〜金', '土日祝'].toList(),
@@ -310,9 +341,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController1 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -340,7 +380,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '④時間帯',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options: [
@@ -353,9 +398,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController2 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -383,7 +437,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '⑤椅子の座り心地',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options:
@@ -392,9 +451,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController3 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -422,7 +490,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '⑥店員さん(注文時以外)',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options: ['話しかけられた', '話しかけられなかった'].toList(),
@@ -430,9 +503,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController4 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -460,7 +542,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '⑦話し声',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options: ['話し声が多い', '話し声が少ない'].toList(),
@@ -468,9 +555,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController5 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -498,7 +594,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '⑧BGM',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options: ['元気系の曲', 'ゆったり系の曲', 'なし'].toList(),
@@ -506,9 +607,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController6 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -536,7 +646,12 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                         children: [
                           Text(
                             '⑩明るさ',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           FlutterFlowRadioButton(
                             options: ['明るい', '程よい暗さ', '暗い'].toList(),
@@ -544,9 +659,18 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                             controller: _model.radioButtonValueController7 ??=
                                 FormFieldController<String>(null),
                             optionHeight: 32.0,
-                            textStyle: FlutterFlowTheme.of(context).labelMedium,
-                            selectedTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
+                            selectedTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                             buttonPosition: RadioButtonPosition.left,
                             direction: Axis.vertical,
                             radioButtonColor:
@@ -753,6 +877,7 @@ class _AddPageWidgetState extends State<AddPageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Readex Pro',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: const BorderSide(

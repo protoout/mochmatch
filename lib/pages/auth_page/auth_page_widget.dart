@@ -173,7 +173,11 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                     child: Text(
                                       'もくまっちへようこそ',
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineMedium,
+                                          .headlineMedium
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -225,6 +229,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -255,6 +260,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     : FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -292,7 +298,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium,
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
@@ -355,7 +366,13 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                minLines: null,
                                                 keyboardType:
                                                     TextInputType.emailAddress,
                                                 validator: _model
@@ -375,6 +392,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     _model.passwordController,
                                                 focusNode:
                                                     _model.passwordFocusNode,
+                                                autofocus: false,
                                                 autofillHints: const [
                                                   AutofillHints.password
                                                 ],
@@ -385,7 +403,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium,
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
@@ -470,7 +493,13 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                minLines: null,
                                                 validator: _model
                                                     .passwordControllerValidator
                                                     .asValidator(context),
@@ -528,6 +557,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                             fontFamily:
                                                                 'Readex Pro',
                                                             color: Colors.white,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                   elevation: 3.0,
                                                   borderSide: const BorderSide(
@@ -570,7 +600,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                   textStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMedium,
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   elevation: 0.0,
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
@@ -621,7 +656,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodySmall,
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
@@ -681,7 +721,13 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                minLines: null,
                                                 keyboardType:
                                                     TextInputType.emailAddress,
                                                 validator: _model
@@ -701,6 +747,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .passwordCreateController,
                                                 focusNode: _model
                                                     .passwordCreateFocusNode,
+                                                autofocus: false,
                                                 autofillHints: const [
                                                   AutofillHints.password
                                                 ],
@@ -711,7 +758,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodySmall,
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
@@ -793,7 +845,13 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                minLines: null,
                                                 validator: _model
                                                     .passwordCreateControllerValidator
                                                     .asValidator(context),
@@ -811,6 +869,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     .passwordConfirmController,
                                                 focusNode: _model
                                                     .passwordConfirmFocusNode,
+                                                autofocus: false,
                                                 autofillHints: const [
                                                   AutofillHints.password
                                                 ],
@@ -821,7 +880,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodySmall,
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
@@ -903,8 +967,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                                minLines: 1,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
                                                     .passwordConfirmControllerValidator
                                                     .asValidator(context),
@@ -980,6 +1048,7 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                             fontFamily:
                                                                 'Readex Pro',
                                                             color: Colors.white,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                   elevation: 3.0,
                                                   borderSide: const BorderSide(
@@ -1008,7 +1077,12 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .titleSmall,
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -1094,6 +1168,8 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,
@@ -1180,6 +1256,8 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Readex Pro',
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                       ),

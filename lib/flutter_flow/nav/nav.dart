@@ -88,32 +88,67 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const ListPageWidget(),
         ),
         FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => const HomePageWidget(),
-        ),
-        FFRoute(
           name: 'DetailPage',
           path: '/shop',
           builder: (context, params) => NavBarPage(
             initialPage: '',
             page: DetailPageWidget(
-              name: params.getParam('name', ParamType.String),
-              location: params.getParam('location', ParamType.LatLng),
-              shishaPicture: params.getParam('shishaPicture', ParamType.String),
-              dayOfWeek: params.getParam('dayOfWeek', ParamType.int),
-              timeframe: params.getParam('timeframe', ParamType.int),
-              softnessOfChair:
-                  params.getParam('softnessOfChair', ParamType.int),
-              friendlinessOfStaffs:
-                  params.getParam('friendlinessOfStaffs', ParamType.int),
-              noisiness: params.getParam('noisiness', ParamType.int),
-              bgm: params.getParam('bgm', ParamType.int),
-              brightness: params.getParam('brightness', ParamType.int),
-              twitterUrl: params.getParam('twitterUrl', ParamType.String),
-              instagramUrl: params.getParam('instagramUrl', ParamType.String),
-              webSiteUrl: params.getParam('webSiteUrl', ParamType.String),
-              isClosed: params.getParam('isClosed', ParamType.bool),
+              name: params.getParam(
+                'name',
+                ParamType.String,
+              ),
+              location: params.getParam(
+                'location',
+                ParamType.LatLng,
+              ),
+              shishaPicture: params.getParam(
+                'shishaPicture',
+                ParamType.String,
+              ),
+              dayOfWeek: params.getParam(
+                'dayOfWeek',
+                ParamType.int,
+              ),
+              timeframe: params.getParam(
+                'timeframe',
+                ParamType.int,
+              ),
+              softnessOfChair: params.getParam(
+                'softnessOfChair',
+                ParamType.int,
+              ),
+              friendlinessOfStaffs: params.getParam(
+                'friendlinessOfStaffs',
+                ParamType.int,
+              ),
+              noisiness: params.getParam(
+                'noisiness',
+                ParamType.int,
+              ),
+              bgm: params.getParam(
+                'bgm',
+                ParamType.int,
+              ),
+              brightness: params.getParam(
+                'brightness',
+                ParamType.int,
+              ),
+              twitterUrl: params.getParam(
+                'twitterUrl',
+                ParamType.String,
+              ),
+              instagramUrl: params.getParam(
+                'instagramUrl',
+                ParamType.String,
+              ),
+              webSiteUrl: params.getParam(
+                'webSiteUrl',
+                ParamType.String,
+              ),
+              isClosed: params.getParam(
+                'isClosed',
+                ParamType.bool,
+              ),
             ),
           ),
         ),
@@ -277,8 +312,12 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+    );
   }
 }
 

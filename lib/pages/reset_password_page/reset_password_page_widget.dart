@@ -67,6 +67,7 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
             style: FlutterFlowTheme.of(context).displaySmall.override(
                   fontFamily: 'Outfit',
                   fontSize: 16.0,
+                  letterSpacing: 0.0,
                 ),
           ),
         ),
@@ -119,7 +120,12 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Back',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ],
@@ -130,14 +136,20 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                 child: Text(
                   'Forgot Password',
-                  style: FlutterFlowTheme.of(context).headlineMedium,
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Outfit',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
                 child: Text(
                   '登録したメールアドレスを入力してください。',
-                  style: FlutterFlowTheme.of(context).labelMedium,
+                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                        fontFamily: 'Readex Pro',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
               Padding(
@@ -151,9 +163,17 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Your email address...',
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       hintText: 'Enter your email...',
-                      hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                      hintStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,
@@ -188,8 +208,12 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                       contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           24.0, 24.0, 20.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0.0,
+                        ),
                     maxLines: null,
+                    minLines: null,
                     keyboardType: TextInputType.emailAddress,
                     cursorColor: FlutterFlowTheme.of(context).primary,
                     validator: _model.emailAddressControllerValidator
@@ -229,7 +253,11 @@ class _ResetPasswordPageWidgetState extends State<ResetPasswordPageWidget> {
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
-                      textStyle: FlutterFlowTheme.of(context).titleSmall,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                letterSpacing: 0.0,
+                              ),
                       elevation: 3.0,
                       borderSide: const BorderSide(
                         color: Colors.transparent,

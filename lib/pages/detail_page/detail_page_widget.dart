@@ -127,6 +127,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                 fontFamily: 'Outfit',
                                 color: Colors.white,
                                 fontSize: 20.0,
+                                letterSpacing: 0.0,
                               ),
                     );
                   },
@@ -201,6 +202,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -215,6 +217,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
@@ -224,25 +227,43 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                           children: [
                             Text(
                               '10.26 km',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                             Text(
                               '　',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                             Builder(
                               builder: (context) {
                                 if (widget.isClosed ?? false) {
                                   return Text(
                                     '閉店',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   );
                                 } else {
                                   return Text(
                                     '　',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          letterSpacing: 0.0,
+                                        ),
                                   );
                                 }
                               },
@@ -417,7 +438,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           '訪れた曜日',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -429,6 +454,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -439,6 +465,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
@@ -455,7 +482,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           '訪れた時間帯',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -467,6 +498,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else if (widget.timeframe == 2) {
@@ -477,6 +509,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else if (widget.timeframe == 3) {
@@ -487,6 +520,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -497,6 +531,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
@@ -513,7 +548,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           '椅子の座り心地',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -525,6 +564,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else if (widget.softnessOfChair == 3) {
@@ -535,6 +575,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else if (widget.softnessOfChair == 2) {
@@ -545,6 +586,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -555,6 +597,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
@@ -571,7 +614,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           '店員さん(注文時以外)',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -583,6 +630,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -593,6 +641,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
@@ -609,7 +658,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           '話し声',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -621,6 +674,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -631,6 +685,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
@@ -647,7 +702,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           'BGM',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -659,6 +718,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else if (widget.bgm == 2) {
@@ -669,6 +729,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -679,6 +740,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
@@ -695,7 +757,11 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                       children: [
                         Text(
                           '明るさ',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                         Builder(
                           builder: (context) {
@@ -707,6 +773,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else if (widget.brightness == 2) {
@@ -717,6 +784,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             } else {
@@ -727,6 +795,7 @@ class _DetailPageWidgetState extends State<DetailPageWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               );
                             }
