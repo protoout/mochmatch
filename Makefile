@@ -1,5 +1,3 @@
-DOCKER_COMPOSER_YML = ./.devcontainer/docker-compose.yml
-
 build-all:
 	make build-clean; \
 	make build-apk; \
@@ -7,7 +5,7 @@ build-all:
 	make build-web;
 
 build-android:
-	flutter build appbundle --flavor production
+	flutter build appbundle
 
 build-apk:
 	flutter build apk
@@ -26,3 +24,6 @@ build-clean:
 
 build-install:
 	flutter install
+
+debug:
+	flutter run
