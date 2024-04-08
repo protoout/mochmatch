@@ -349,7 +349,13 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                 await getCurrentUserLocation(
                                     defaultLocation: const LatLng(0.0, 0.0));
                             _model.allShops =
-                                await queryMochmatchDataRecordOnce();
+                                await queryMochmatchDataRecordOnce(
+                              queryBuilder: (mochmatchDataRecord) =>
+                                  mochmatchDataRecord.where(
+                                'location',
+                                isNotEqualTo: null?.toGeoPoint(),
+                              ),
+                            );
                             setState(() {
                               _model.isShowFullList = false;
                             });
@@ -1036,7 +1042,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                               '${formatNumber(
                                                                 functions.calculateDistanceAsDouble(
                                                                     listViewMochmatchDataRecord
-                                                                        .location!,
+                                                                        .location,
                                                                     currentUserLocationValue!),
                                                                 formatType:
                                                                     FormatType
@@ -1268,7 +1274,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                                                           '${formatNumber(
                                                             functions.calculateDistanceAsDouble(
                                                                 searchResultItem
-                                                                    .location!,
+                                                                    .location,
                                                                 currentUserLocationValue!),
                                                             formatType:
                                                                 FormatType

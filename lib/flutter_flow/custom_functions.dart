@@ -33,13 +33,17 @@ String? calculateShoshinsha(int friendlinessOfStaffs) {
 }
 
 double calculateDistanceAsDouble(
-  LatLng shishaLocation,
+  LatLng? shishaLocation,
   LatLng currentLocation,
 ) {
+  if (shishaLocation == null) {
+    return 10000; // shishaLocationがnullの場合、距離10000を返す
+  }
+
   // Calculate the distance from the longitude and latitude of shishaLocation and currentLocation.
   final double earthRadius = 6371.0;
-  final double lat1 = shishaLocation.latitude;
-  final double lon1 = shishaLocation.longitude;
+  final double lat1 = shishaLocation.latitude ?? 0; // Nullの場合は0を代入
+  final double lon1 = shishaLocation.longitude ?? 0; // Nullの場合は0を代入
   final double lat2 = currentLocation.latitude;
   final double lon2 = currentLocation.longitude;
 

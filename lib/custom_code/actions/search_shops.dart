@@ -22,7 +22,15 @@ Future<List<MochmatchDataRecord>> searchShops(
   }
 
   if (searchWord.trim().isEmpty) {
-    allShops.sort((a, b) {
+    List<MochmatchDataRecord> filteredShops = [];
+    for (MochmatchDataRecord shop in allShops) {
+      if (shop.location != null) {
+        // ロケーションがnullでない場合にのみ追加する
+        filteredShops.add(shop);
+      }
+    }
+
+    filteredShops.sort((a, b) {
       if (a.location != null && b.location != null) {
         return calculateDistanceAsDouble(a.location!, currentLocation)
             .compareTo(calculateDistanceAsDouble(b.location!, currentLocation));
@@ -30,49 +38,53 @@ Future<List<MochmatchDataRecord>> searchShops(
         return 0;
       }
     });
-    return allShops;
+
+    return filteredShops;
   }
 
   List<MochmatchDataRecord> filteredShops = [];
   for (MochmatchDataRecord shop in allShops) {
-    bool addToFilteredShops = true;
-    for (String condition in conditions) {
-      if (condition == '#初心者' &&
-          calculateShoshinsha(shop.friendlinessOfStaffs) != '#初心者') {
-        addToFilteredShops = false;
-        break;
+    if (shop.location != null) {
+      // ロケーションがnullでない場合にのみ追加する
+      bool addToFilteredShops = true;
+      for (String condition in conditions) {
+        if (condition == '#初心者' &&
+            calculateShoshinsha(shop.friendlinessOfStaffs) != '#初心者') {
+          addToFilteredShops = false;
+          break;
+        }
+        if (condition == '#集中' &&
+            calculateShuchu(shop.noisiness, shop.softnessOfChair) != '#集中') {
+          addToFilteredShops = false;
+          break;
+        }
+        if (condition == '#ダラダラ' &&
+            calculateDaradara(shop.softnessOfChair) != '#ダラダラ') {
+          addToFilteredShops = false;
+          break;
+        }
+        if (condition == '#まったり' &&
+            calculateMattari(shop.noisiness, shop.bgm, shop.brightness) !=
+                '#まったり') {
+          addToFilteredShops = false;
+          break;
+        }
+        if (condition == '#ワイワイ' &&
+            calculateWaiwai(
+                    shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) !=
+                '#ワイワイ') {
+          addToFilteredShops = false;
+          break;
+        }
+        if (!condition.startsWith('#') &&
+            !shop.name.toLowerCase().contains(condition.toLowerCase())) {
+          addToFilteredShops = false;
+          break;
+        }
       }
-      if (condition == '#集中' &&
-          calculateShuchu(shop.noisiness, shop.softnessOfChair) != '#集中') {
-        addToFilteredShops = false;
-        break;
+      if (addToFilteredShops) {
+        filteredShops.add(shop);
       }
-      if (condition == '#ダラダラ' &&
-          calculateDaradara(shop.softnessOfChair) != '#ダラダラ') {
-        addToFilteredShops = false;
-        break;
-      }
-      if (condition == '#まったり' &&
-          calculateMattari(shop.noisiness, shop.bgm, shop.brightness) !=
-              '#まったり') {
-        addToFilteredShops = false;
-        break;
-      }
-      if (condition == '#ワイワイ' &&
-          calculateWaiwai(
-                  shop.friendlinessOfStaffs, shop.noisiness, shop.bgm) !=
-              '#ワイワイ') {
-        addToFilteredShops = false;
-        break;
-      }
-      if (!condition.startsWith('#') &&
-          !shop.name.toLowerCase().contains(condition.toLowerCase())) {
-        addToFilteredShops = false;
-        break;
-      }
-    }
-    if (addToFilteredShops) {
-      filteredShops.add(shop);
     }
   }
 
